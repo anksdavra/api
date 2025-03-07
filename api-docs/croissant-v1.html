@@ -1,0 +1,1139 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Croissant API - V1</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:#000;background:#A6F4DC;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #8ff1d3;margin-bottom:12px}h1,h2,h3,h4,h5{color:#000;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(166,244,220,0.2) 51.4%, rgba(166,244,220,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:#000;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#9df3d8}table th,table td{padding:6px 12px;border:1px solid #79eeca}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:#000;background-color:#9eecdb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:#000;background-color:#a8e6d0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:#000;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid #000}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #62ecc1;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid #000}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#8ff1d3;border-radius:10px;margin:-2px 0}.badge.get{color:#4f2d3d;background-color:#A05C7B}.badge.head{color:#4f2d3d;background-color:#A05C7B}.badge.options{color:#4f2d3d;background-color:#A05C7B}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#6f5069;background-color:#AF90A9}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:#A6F4DC}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#b82e6d}.definition .method.head{color:#b82e6d}.definition .method.options{color:#b82e6d}.definition .method.post{color:#b82e9d}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:#000;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:#A6F4DC;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#8ff1d3;text-decoration:none !important;border-top:1px solid #62ecc1;border-left:1px solid #62ecc1;border-right:1px solid #62ecc1;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:#85FF9E;border:1px solid #62ecc1;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#8ff1d3;border-bottom:1px solid #62ecc1;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #62ecc1}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#944654}.action h4.action-heading .method.head{color:#fff;background-color:#944654}.action h4.action-heading .method.options{color:#fff;background-color:#944654}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#A05C7B}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid #85FF9E;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#905379}.action.get h4.action-heading{color:#944654;background:#A05C7B;border-bottom-color:#905379}.action.head{border-color:#905379}.action.head h4.action-heading{color:#944654;background:#A05C7B;border-bottom-color:#905379}.action.options{border-color:#905379}.action.options h4.action-heading{color:#944654;background:#A05C7B;border-bottom-color:#905379}.action.post{border-color:#a481a3}.action.post h4.action-heading{color:#A05C7B;background:#AF90A9;border-bottom-color:#a481a3}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#">Resource Group</a></div><div class="collapse-content"><ul><li><a href="#categories-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Category details</a></li><li><a href="#category-hub-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Category Hub</a></li><li><a href="#emails-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Email details</a></li><li><a href="#campaign-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Email id</a></li><li><a href="#my-stylist-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>My Stylist</a></li><li><a href="#popular-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Popular results</a></li><li><a href="#post-object-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Post details</a></li><li><a href="#post-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Posts list</a></li><li><a href="#search-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Search results</a></li><li><a href="#series-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Series details</a></li><li><a href="#post-user-lookup-create-post"><span class="badge post"><i class="fa fa-plus"></i></span>Slackbot interaction</a></li><li><a href="#tags-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Tag details</a></li><li><a href="#tagbot-categories-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Tagbot categories details</a></li><li><a href="#trends-lookup-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Trends lookup</a></li><li><a href="#users-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>User details</a></li><li><a href="#email-unsubscribe-questions-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Unsubscribe Questions</a></li><li><a href="#verticals-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Verticals array</a></li><li><a href="#categories-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Category details</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">Croissant API - V1</h1></header><p>Documentation for Croissant API endpoints.</p>
+<section id="" class="resource-group"><h2 class="group-heading">Resource Group <a href="#" class="permalink">&para;</a></h2><div id="categories" class="resource"><h3 class="resource-heading">Categories <a href="#categories" class="permalink">&nbsp;&para;</a></h3><p>Returns an object with metadata of the required category.</p>
+<div id="categories-get" class="action get"><h4 class="action-heading"><div class="name">Category details</div><a href="#categories-get" class="method get">GET</a><code class="uri">/categories{?slug}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/categories?<span class="hljs-attribute">slug=</span><span class="hljs-literal">beauty</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>slug</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>beauty</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">642</span></span>,
+        "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">2095</span></span>,
+        "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/beauty"</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Beauty"</span></span>,
+        "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"beauty"</span></span>,
+        "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">taxonomy</span>": <span class="hljs-value"><span class="hljs-string">"category"</span></span>,
+        "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">sell</span>": <span class="hljs-value"><span class="hljs-string">"Explore the latest beauty news, from hair, make-up &amp; skincare trends to beauty product reviews and exclusives"</span></span>,
+        }</span>,
+        "<span class="hljs-attribute">seo_description</span>": <span class="hljs-value"><span class="hljs-string">"test 1"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_category"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Category poop does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Missing parameter(s): slug"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">params</span>": <span class="hljs-value">[
+      <span class="hljs-string">"slug"</span>
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="category-hub" class="resource"><h3 class="resource-heading">Category Hub <a href="#category-hub" class="permalink">&nbsp;&para;</a></h3><p>Returns an object with metadata of the hub page associated with the required category.</p>
+<div id="category-hub-get" class="action get"><h4 class="action-heading"><div class="name">Category Hub</div><a href="#category-hub-get" class="method get">GET</a><code class="uri">/category-hub{?slug,page,per_page}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/category-hub?<span class="hljs-attribute">slug=</span><span class="hljs-literal">beauty</span>&<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">per_page=</span><span class="hljs-literal">24</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>slug</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>beauty</span></span></dd><dt>page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span></dd><dt>per_page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>24</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Beauty"</span></span>,
+  "<span class="hljs-attribute">latest_posts</span>": <span class="hljs-value">[
+    {}
+  ]</span>,
+  "<span class="hljs-attribute">popular_posts</span>": <span class="hljs-value">[
+    {}
+  ]</span>,
+  "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">widgets</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">acf_fc_layout</span>": <span class="hljs-value"><span class="hljs-string">"paragraph"</span></span>,
+        "<span class="hljs-attribute">paragraph</span>": <span class="hljs-value"><span class="hljs-string">"&lt;p&gt;bla bla bla&lt;/p&gt;\n"</span></span>,
+        "<span class="hljs-attribute">hide_widget_from_page</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Missing parameter(s): slug"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">params</span>": <span class="hljs-value">[
+      <span class="hljs-string">"slug"</span>
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_category"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Category poop does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>418</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_hub_page"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"A hub page has not been associated with this category"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">418</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="emails" class="resource"><h3 class="resource-heading">Emails <a href="#emails" class="permalink">&nbsp;&para;</a></h3><p>Return an object with the email information.</p>
+<div id="emails-get" class="action get"><h4 class="action-heading"><div class="name">Email details</div><a href="#emails-get" class="method get">GET</a><code class="uri">/emails/{id}{?tapestry_hash,p}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/emails/<span class="hljs-attribute" title="id">271419</span>?<span class="hljs-attribute">tapestry_hash=</span><span class="hljs-literal">716de23e46b9362fb6061f8e246c517b81463848</span>&<span class="hljs-attribute">p=</span><span class="hljs-literal">email_id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>271419</span></span></dd><dt>tapestry_hash</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>716de23e46b9362fb6061f8e246c517b81463848</span></span></dd><dt>p</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>email_id</span></span><p><strong>Please note that the optional parameters are used to retrieve information from preview emails and have to be used together</strong></p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">271419</span></span>,
+  "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2019-06-14T14:55:57"</span></span>,
+  "<span class="hljs-attribute">date_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2019-06-14T13:55:57"</span></span>,
+  "<span class="hljs-attribute">modified</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-30T15:52:18"</span></span>,
+  "<span class="hljs-attribute">modified_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-30T15:52:18"</span></span>,
+  "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/email/271419"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"email"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">rendered</span>": <span class="hljs-value"><span class="hljs-string">"I was charged £750 to post a letter..."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"i-was-charged-750-to-post-a-letter"</span></span>,
+  "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">campaign_name</span>": <span class="hljs-value"><span class="hljs-string">"20190614 - [S] - NATWEST - PARTNERSHIP"</span></span>,
+    "<span class="hljs-attribute">date_picker</span>": <span class="hljs-value"><span class="hljs-string">"2023-01-12, 2023"</span></span>,
+    "<span class="hljs-attribute">preview_line</span>": <span class="hljs-value"><span class="hljs-string">"And other fees you should know about when buying a house"</span></span>,
+    "<span class="hljs-attribute">litmus_tracking_id</span>": <span class="hljs-value"><span class="hljs-string">"ggzaooq5"</span></span>,
+    "<span class="hljs-attribute">email_vertical</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">widgets</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">sponsored</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">disable_advert_slots</span>": <span class="hljs-value"><span class="hljs-number">1561852800</span></span>,
+    "<span class="hljs-attribute">affiliate_links</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">co_author</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">magnum_opus</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">sponsor_name</span>": <span class="hljs-value"><span class="hljs-string">"Natwest"</span></span>,
+    "<span class="hljs-attribute">sponsor_logo</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">sponsor_link</span>": <span class="hljs-value"><span class="hljs-string">"http://www.natwest.co.uk"</span></span>,
+    "<span class="hljs-attribute">sponsor_type</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">sponsor_label</span>": <span class="hljs-value"><span class="hljs-string">"in-partnership-with"</span></span>,
+    "<span class="hljs-attribute">header_image</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">primary_colour</span>": <span class="hljs-value"><span class="hljs-string">"#02a3aa"</span></span>,
+    "<span class="hljs-attribute">accent_colour</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">hero_images</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">tagbot_data</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">package_ids</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">seo_schema</span>": <span class="hljs-value"><span class="hljs-string">"[{\"@type\":\"Article\",\"@context\":\"https://schema.org\",\"@id\":\"http://0.0.0.0:3000/email/751577\",\"publisher\":{\"@type\":\"Organization\",\"@context\":\"https://schema.org\",\"@id\":\"https://www.thestylistgroup.com/\",\"name\":\"The Stylist Group Ltd\",\"url\":\"https://www.thestylistgroup.com/\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2021/10/19180919/stylist-logo.png\",\"width\":800,\"height\":800},\"sameAs\":[\"https://www.facebook.com/StylistMagazine\",\"https://twitter.com/stylistmagazine\",\"https://www.instagram.com/stylistmagazine\",\"https://www.pinterest.co.uk/stylistmagazine\"]},\"isAccessibleForFree\":true,\"image\":[],\"author\":[{\"type\":\"Person\",\"name\":\"Natasha Gandotra\",\"sameAs\":\"http://0.0.0.0:3000/author/natasha-gandotra\",\"image\":\"\"}],\"datePublished\":\"2023-01-13T15:02:45\",\"headline\":\"\",\"articleSection\":\"\",\"dateModified\":\"2023-01-13T15:02:45\",\"timeRequired\":0,\"keywords\":\"\",\"description\":\"\",\"mainEntityOfPage\":\"http://0.0.0.0:3000/email/751577\"}]"</span></span>,
+    "<span class="hljs-attribute">image_credits</span>": <span class="hljs-value"><span class="hljs-string">"Getty"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">_embedded</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"undefined_post"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"This post does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="campaign" class="resource"><h3 class="resource-heading">Campaign <a href="#campaign" class="permalink">&nbsp;&para;</a></h3><p>Returns an email id based on a campaign name.</p>
+<div id="campaign-get" class="action get"><h4 class="action-heading"><div class="name">Email id</div><a href="#campaign-get" class="method get">GET</a><code class="uri">/campaign{?slug}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/campaign?<span class="hljs-attribute">slug=</span><span class="hljs-literal">20190906-FRI-DAILY</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>slug</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>20190906-FRI-DAILY</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">295738</span></span>,
+  "<span class="hljs-attribute">sponsor_name</span>": <span class="hljs-value"><span class="hljs-string">"Burger King"</span></span>,
+  "<span class="hljs-attribute">project_id</span>": <span class="hljs-value"><span class="hljs-number">123</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"undefined_email"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"There is no email with campaign name 666-the-number-of-the-beast-CAMPAIGN"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Missing parameter(s): slug"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">params</span>": <span class="hljs-value">[
+      <span class="hljs-string">"slug"</span>
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="my-stylist" class="resource"><h3 class="resource-heading">My Stylist <a href="#my-stylist" class="permalink">&nbsp;&para;</a></h3><p>Returns My Stylist settings</p>
+<div id="my-stylist-get" class="action get"><h4 class="action-heading"><div class="name">My Stylist</div><a href="#my-stylist-get" class="method get">GET</a><code class="uri">/my-stylist</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/my-stylist</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">navigation</span>": <span class="hljs-value">[
+                        {
+                                "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Discover"</span></span>,
+                                "<span class="hljs-attribute">second_level</span>": <span class="hljs-value">[
+                                        {
+                                                "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"style"</span></span>,
+                                        }
+                                ]
+                        </span>}
+        ]</span>,
+        "<span class="hljs-attribute">faqs</span>": <span class="hljs-value">[
+                {
+                        "<span class="hljs-attribute">faq_topic_header</span>": <span class="hljs-value"><span class="hljs-string">"Topic header 1"</span></span>,
+                        "<span class="hljs-attribute">faqs</span>": <span class="hljs-value">[
+                                {
+                                        "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"Faq 1"</span></span>,
+                                        "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"&lt;p&gt;Answer 1&lt;/p&gt;\n"</span>
+                                </span>}
+                        ]
+                </span>}
+        ]</span>,
+        "<span class="hljs-attribute">assets</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">master_image</span>": <span class="hljs-value">{
+                        "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/06/08164923/halloumi-sandwich-recipe-vegetarian.jpg"</span></span>,
+                        "<span class="hljs-attribute">alt</span>": <span class="hljs-value"><span class="hljs-string">"Halloumi sandwich recipe with green goddess sauce"</span></span>,
+                        "<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-number">1362</span></span>,
+                        "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">2048</span></span>,
+                        "<span class="hljs-attribute">caption</span>": <span class="hljs-value"><span class="hljs-string">"Halloumi sandwich with green goddess sauce recipe"</span></span>,
+                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Faith Mason/Quadrille Publishing"</span></span>,
+                        "<span class="hljs-attribute">sizes</span>": <span class="hljs-value">{}
+                </span>}</span>,
+                "<span class="hljs-attribute">logo_image</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">popular_categories</span>": <span class="hljs-value">[
+                {
+                        "<span class="hljs-attribute">term_id</span>": <span class="hljs-value"><span class="hljs-number">563</span></span>,
+                        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Style List"</span>
+                </span>},
+                {
+                        "<span class="hljs-attribute">term_id</span>": <span class="hljs-value"><span class="hljs-number">6789</span></span>,
+                        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Home"</span>
+                </span>},
+        ]</span>,
+        "<span class="hljs-attribute">cancellation_survey</span>": <span class="hljs-value">[
+                {
+                        "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"Why are you cancelling ?"</span></span>,
+                        "<span class="hljs-attribute">answers</span>": <span class="hljs-value">[
+                                {
+                                        "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"&lt;p&gt;reason 1&lt;/p&gt;\n"</span>
+                                </span>},
+                                {
+                                        "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"&lt;p&gt;reason 2&lt;/p&gt;\n"</span>
+                                </span>}
+                        ]
+                </span>}
+        ]</span>,
+        "<span class="hljs-attribute">membership_offers</span>": <span class="hljs-value">[
+                        {
+                                "<span class="hljs-attribute">offers_group_header</span>": <span class="hljs-value"><span class="hljs-string">"MyStylist Offers"</span></span>,
+                                "<span class="hljs-attribute">offers</span>": <span class="hljs-value">[]
+                                <span class="hljs-string">"total"</span>: <span class="hljs-number">0</span>
+                                <span class="hljs-string">"package_ids"</span>: []
+                        </span>}
+        ]</span>,
+}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="popular" class="resource"><h3 class="resource-heading">Popular <a href="#popular" class="permalink">&nbsp;&para;</a></h3><p>Returns an array of popular posts in google analytics matching the dates and filters.</p>
+<div id="popular-get" class="action get"><h4 class="action-heading"><div class="name">Popular results</div><a href="#popular-get" class="method get">GET</a><code class="uri">/popular{?start_date,end_date,from_date,results,tag,categories}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/popular?<span class="hljs-attribute">start_date=</span><span class="hljs-literal">2020-02-02</span>&<span class="hljs-attribute">end_date=</span><span class="hljs-literal">2020-02-03</span>&<span class="hljs-attribute">from_date=</span><span class="hljs-literal">2020-02-02</span>&<span class="hljs-attribute">results=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">tag=</span><span class="hljs-literal">Baftas</span>&<span class="hljs-attribute">categories=</span><span class="hljs-literal">People</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>start_date</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2020-02-02</span></span></dd><dt>end_date</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2020-02-03</span></span></dd><dt>from_date</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2020-02-02</span></span></dd><dt>results</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span></dd><dt>tag</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>Baftas</span></span></dd><dt>categories</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>People</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+        {
+                "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">351342</span></span>,
+                "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2020-02-02T23:27:17"</span></span>,
+                "<span class="hljs-attribute">date_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2020-02-02T23:27:17"</span></span>,
+                "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/people/baftas-2020-kate-middleton-laughs-brad-pitt-prince-harry-joke/351342"</span></span>,
+                "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+                        "<span class="hljs-attribute">rendered</span>": <span class="hljs-value"><span class="hljs-string">"Baftas 2020: Kate Middleton’s reaction to Brad Pitt’s Harry joke is everything"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{
+                        "<span class="hljs-attribute">short_headline</span>": <span class="hljs-value"><span class="hljs-string">"Baftas 2020: Kate Middleton’s reaction to Brad Pitt’s Harry joke is everything"</span></span>,
+                        "<span class="hljs-attribute">sell</span>": <span class="hljs-value"><span class="hljs-string">"The Duchess of Cambridge shows she’s game for a laugh, despite recent royal tensions."</span></span>,
+                        "<span class="hljs-attribute">sponsor_name</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                        "<span class="hljs-attribute">sponsor_link</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                        "<span class="hljs-attribute">sponsor_label</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+                        "<span class="hljs-attribute">sponsor_logo</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                        "<span class="hljs-attribute">hero_images</span>": <span class="hljs-value">[]</span>,
+                        "<span class="hljs-attribute">brand_logo</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                        "<span class="hljs-attribute">category</span>": <span class="hljs-value">{}</span>,
+                        "<span class="hljs-attribute">series</span>": <span class="hljs-value">[]</span>,
+                        "<span class="hljs-attribute">package_ids</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                        "<span class="hljs-attribute">tagbot_data</span>": <span class="hljs-value">{}</span>,
+                        "<span class="hljs-attribute">review_rating</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">word_count</span>": <span class="hljs-value"><span class="hljs-number">342</span>
+                <span class="hljs-string">"_embedded"</span>: {
+                        "<span class="hljs-attribute">author</span>": <span class="hljs-value">[
+                                {
+                                        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+                                        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Anna Brech"</span></span>,
+                                        "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Anna Brech is a freelance journalist and former editor for stylist.co.uk. Her six-year stint on the site saw her develop a vociferous appetite for live Analytics, feminist opinion and good-quality gin in roughly equal measure. She enjoys writing across all areas of women’s lifestyle content but has a soft spot for books and escapist travel content."</span></span>,
+                                        "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/author/anna-brech"</span></span>,
+                                        "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"anna-brech"</span>
+                                </span>}
+                        ]
+                </span>}</span>,
+                "<span class="hljs-attribute">sticky</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+        </span>}
+]</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[]</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Missing parameter(s): start_date"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">params</span>": <span class="hljs-value">[
+      <span class="hljs-string">"start_date"</span>,
+      <span class="hljs-string">"end_date"</span>
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="post-object" class="resource"><h3 class="resource-heading">Post Object <a href="#post-object" class="permalink">&nbsp;&para;</a></h3><p>Returns a single article</p>
+<div id="post-object-get" class="action get"><h4 class="action-heading"><div class="name">Post details</div><a href="#post-object-get" class="method get">GET</a><code class="uri">/posts/{post_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/posts/<span class="hljs-attribute" title="post_id">397218</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>post_id</dt><dd><code>integer</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>397218</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">397218</span></span>,
+  "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-17T18:03:12"</span></span>,
+  "<span class="hljs-attribute">date_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-17T17:03:12"</span></span>,
+  "<span class="hljs-attribute">modified</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-18T14:56:44"</span></span>,
+  "<span class="hljs-attribute">modified_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-18T13:56:44"</span></span>,
+  "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/books/post-for-the-testings-of-sortingoffice/397218"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"post"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"post-for-the-testings-of-sortingoffice"</span></span>,
+  "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">next_article</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">time_to_read</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
+  "<span class="hljs-attribute">word_count</span>": <span class="hljs-value"><span class="hljs-number">1693</span></span>,
+  "<span class="hljs-attribute">_embedded</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">author</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">711</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Diogo Costa"</span></span>,
+        "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/author/diogo-costa"</span></span>,
+        "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"diogo-costa"</span>
+      </span>}
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"undefined_post"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"This post does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="post-list" class="resource"><h3 class="resource-heading">Post List <a href="#post-list" class="permalink">&nbsp;&para;</a></h3><p>Returns a list of articles based on parameters passed on.</p>
+<div id="post-list-get" class="action get"><h4 class="action-heading"><div class="name">Posts list</div><a href="#post-list-get" class="method get">GET</a><code class="uri">/posts{?ids,tags,tags_exclude,categories,categories_exclude,series,series_exclude,packages,packages_exclude,authors,authors_exclude,post_types,sticky,post_types,offset,page,per_page,orderby,order,posts_exclude}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/posts?<span class="hljs-attribute">ids=</span><span class="hljs-literal">1234,43221</span>&<span class="hljs-attribute">tags=</span><span class="hljs-literal">music</span>&<span class="hljs-attribute">tags_exclude=</span><span class="hljs-literal">food</span>&<span class="hljs-attribute">categories=</span><span class="hljs-literal">beauty</span>&<span class="hljs-attribute">categories_exclude=</span><span class="hljs-literal">books</span>&<span class="hljs-attribute">series=</span><span class="hljs-literal">loves</span>&<span class="hljs-attribute">series_exclude=</span><span class="hljs-literal">strong</span>&<span class="hljs-attribute">packages=</span><span class="hljs-literal">stylist</span>&<span class="hljs-attribute">packages_exclude=</span><span class="hljs-literal">trainning</span>&<span class="hljs-attribute">authors=</span><span class="hljs-literal">willbays</span>&<span class="hljs-attribute">authors_exclude=</span><span class="hljs-literal">Adrian.Cristea</span>&<span class="hljs-attribute">post_types=</span><span class="hljs-literal">post</span>&<span class="hljs-attribute">sticky=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">post_types=</span><span class="hljs-literal">post</span>&<span class="hljs-attribute">offset=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">per_page=</span><span class="hljs-literal">3</span>&<span class="hljs-attribute">orderby=</span><span class="hljs-literal">title</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal">DESC</span>&<span class="hljs-attribute">posts_exclude=</span><span class="hljs-literal">12345,23456</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>ids</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1234,43221</span></span></dd><dt>tags</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>music</span></span></dd><dt>tags_exclude</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>food</span></span></dd><dt>categories</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>beauty</span></span></dd><dt>categories_exclude</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>books</span></span></dd><dt>series</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>loves</span></span></dd><dt>series_exclude</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>strong</span></span></dd><dt>packages</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>stylist</span></span><p>live (optional, string)</p>
+</dd><dt>packages_exclude</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>trainning</span></span><p>club (optional, string)</p>
+</dd><dt>authors</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>willbays</span></span></dd><dt>post_types</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>post</span></span><p>Just for clarification, here is a valid list of <code>post_types</code>:</p>
+<ul>
+<li>
+<p>post</p>
+</li>
+<li>
+<p>page</p>
+</li>
+<li>
+<p>longform</p>
+</li>
+<li>
+<p>quiz_post</p>
+</li>
+<li>
+<p>sponsored_post</p>
+</li>
+<li>
+<p>sponsored_longform</p>
+</li>
+<li>
+<p>sponsored_quiz_post</p>
+</li>
+</ul>
+</dd><dt>posts_exclude</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>12345,23456</span></span><p>Posts with the specified ids will be omitted from the results</p>
+</dd><dt>authors_exclude</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>Adrian.Cristea</span></span><p>All string params accept multiple values separated by commas. Example: <code>?tags=music,food</code></p>
+</dd><dt>sticky</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>Accepts <code>1</code> for true and <code>0</code> for false:</p>
+<ul>
+<li>
+<p>if 1, it will return ONLY sticky posts</p>
+</li>
+<li>
+<p>if 0, it will return NO sticky posts</p>
+</li>
+<li>
+<p>if not used, the sticky posts will be treated as a normal post and return in chronological order</p>
+</li>
+</ul>
+</dd><dt>offset</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>Wordpress will ignore <code>page</code> post types if <code>offset</code> is used</p>
+</dd><dt>page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span></dd><dt>per_page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>3</span></span></dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>DESC</span></span><p>Accepted values: <code>ASC</code> or <code>DESC</code>, default: <code>DESC</code></p>
+</dd><dt>orderby</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>title</span></span><p>Accepted values:</p>
+<ul>
+<li>
+<p><code>ID</code> order by post ID</p>
+</li>
+<li>
+<p><code>title</code> order by title</p>
+</li>
+<li>
+<p><code>type</code> order by post type</p>
+</li>
+<li>
+<p><code>date</code> order by publish date</p>
+</li>
+<li>
+<p><code>modified</code> order by modified date</p>
+</li>
+<li>
+<p><code>parent</code> order by post parent</p>
+</li>
+<li>
+<p><code>rand</code> random order
+Default value: <code>date</code></p>
+</li>
+</ul>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">397218</span></span>,
+    "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-17T18:03:12"</span></span>,
+    "<span class="hljs-attribute">date_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-17T17:03:12"</span></span>,
+    "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/books/post-for-the-testings-of-sortingoffice/397218"</span></span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">_embedded</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">sticky</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">397165</span></span>,
+    "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-12T14:35:48"</span></span>,
+    "<span class="hljs-attribute">date_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2020-06-12T13:35:48"</span></span>,
+    "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/fashion/test-post-voucher-design/397165"</span></span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">_embedded</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">63</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Will Bays"</span></span>,
+          "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+          "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/author/willbays"</span></span>,
+          "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"willbays"</span>
+        </span>}
+      ]
+    </span>}</span>,
+    "<span class="hljs-attribute">sticky</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_posts"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"No posts returned for this filter"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="search" class="resource"><h3 class="resource-heading">Search <a href="#search" class="permalink">&nbsp;&para;</a></h3><p>Returns an array of posts based on a string search</p>
+<div id="search-get" class="action get"><h4 class="action-heading"><div class="name">Search results</div><a href="#search-get" class="method get">GET</a><code class="uri">/search/{?s,per_page,page}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/search/?<span class="hljs-attribute">s=</span><span class="hljs-literal">loves</span>&<span class="hljs-attribute">per_page=</span><span class="hljs-literal">2</span>&<span class="hljs-attribute">page=</span><span class="hljs-literal">3</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>s</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>loves</span></span><p>string search</p>
+</dd><dt>per_page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2</span></span><p>number of posts per page</p>
+</dd><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>3</span></span><p>number of desired page</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">314291</span></span>,
+    "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2019-10-18T17:08:04"</span></span>,
+    "<span class="hljs-attribute">date_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2019-10-18T16:08:04"</span></span>,
+    "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/life/amazon-modern-love-review-best-episodes-essays-anne-hathaway-tina-fey-dating-relationships/314291"</span></span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">rendered</span>": <span class="hljs-value"><span class="hljs-string">"Modern Love review: best essays and episodes from the new Amazon series"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">_embedded</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">sticky</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">303111</span></span>,
+    "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2019-10-07T11:00:04"</span></span>,
+    "<span class="hljs-attribute">date_gmt</span>": <span class="hljs-value"><span class="hljs-string">"2019-10-07T10:00:04"</span></span>,
+    "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/books/books-reading-nostalgia-best-books-2009/303111"</span></span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">rendered</span>": <span class="hljs-value"><span class="hljs-string">"The books we fell in (and sometimes out of) love with in 2009"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">_embedded</span>": <span class="hljs-value">{}</span>,
+    "<span class="hljs-attribute">sticky</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"undefined_post"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"This post does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="series" class="resource"><h3 class="resource-heading">Series <a href="#series" class="permalink">&nbsp;&para;</a></h3><p>Returns an object with metadata about a series taxonomy.</p>
+<div id="series-get" class="action get"><h4 class="action-heading"><div class="name">Series details</div><a href="#series-get" class="method get">GET</a><code class="uri">/series{?slug}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/series?<span class="hljs-attribute">slug=</span><span class="hljs-literal">loves</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>slug</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>loves</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">term_id</span>": <span class="hljs-value"><span class="hljs-number">7553</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Stylist Loves"</span></span>,
+        "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"loves"</span></span>,
+        "<span class="hljs-attribute">term_group</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">term_taxonomy_id</span>": <span class="hljs-value"><span class="hljs-number">7553</span></span>,
+        "<span class="hljs-attribute">taxonomy</span>": <span class="hljs-value"><span class="hljs-string">"series"</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Cult buys and can’t-miss experiences for women who want more from their world"</span></span>,
+        "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">552</span></span>,
+        "<span class="hljs-attribute">filter</span>": <span class="hljs-value"><span class="hljs-string">"raw"</span></span>,
+        "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/series/loves"</span></span>,
+        "<span class="hljs-attribute">primary_colour</span>": <span class="hljs-value"><span class="hljs-string">"#acd2df"</span></span>,
+        "<span class="hljs-attribute">accent_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+        "<span class="hljs-attribute">series_nav_label</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/04/23141322/loves_series_logo_2004_v1.svg"</span></span>,
+                "<span class="hljs-attribute">alt</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                "<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+                "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+                "<span class="hljs-attribute">caption</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+                "<span class="hljs-attribute">sizes</span>": <span class="hljs-value">[]
+        </span>}</span>,
+        "<span class="hljs-attribute">series_badge</span>": <span class="hljs-value">{}</span>,
+        "<span class="hljs-attribute">series_banner</span>": <span class="hljs-value">{}</span>,
+        "<span class="hljs-attribute">series_mobile_banner</span>": <span class="hljs-value">{}</span>,
+        "<span class="hljs-attribute">banner_background_colour</span>": <span class="hljs-value"><span class="hljs-string">"#acd2df"</span></span>,
+        "<span class="hljs-attribute">sponsored</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">disable_advert_slots</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">series_canonical_url</span>": <span class="hljs-value"><span class="hljs-string">"https://google.com"</span></span>,
+        "<span class="hljs-attribute">seo_schema</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">seo_title</span>": <span class="hljs-value"><span class="hljs-string">"asdasdas"</span></span>,
+        "<span class="hljs-attribute">seo_description</span>": <span class="hljs-value"><span class="hljs-string">"adsasdasdadad"</span></span>,
+        "<span class="hljs-attribute">old_article_image_override</span>": <span class="hljs-value"><span class="hljs-string">"false"</span>
+        <span class="hljs-string">"text_accent_colour"</span>: <span class="hljs-string">""</span>
+        <span class="hljs-string">"project_id"</span>: <span class="hljs-string">""</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_series"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Series tremendous-series-best-series-in-the-world does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Missing parameter(s): slug"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">params</span>": <span class="hljs-value">[
+      <span class="hljs-string">"slug"</span>
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="post-user-lookup-create" class="resource"><h3 class="resource-heading">Post/User Lookup/Create <a href="#post-user-lookup-create" class="permalink">&nbsp;&para;</a></h3><div id="post-user-lookup-create-post" class="action post"><h4 class="action-heading"><div class="name">Slackbot interaction</div><a href="#post-user-lookup-create-post" class="method post">POST</a><code class="uri">/slackbot/posts{?team_id,channel_name,text}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/slackbot/posts?<span class="hljs-attribute">team_id=</span><span class="hljs-literal">team id</span>&<span class="hljs-attribute">channel_name=</span><span class="hljs-literal">channel name</span>&<span class="hljs-attribute">text=</span><span class="hljs-literal">post id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>team_id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>team id</span></span></dd><dt>channel_name</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>channel name</span></span></dd><dt>text</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>post id</span></span><p>Depending on the context, the <code>text</code> parameter can take different values:</p>
+<ul>
+<li>
+<p>To lookup a post, use post id.</p>
+</li>
+<li>
+<p>To lookup a user, use surname.</p>
+</li>
+<li>
+<p>To create a new user, use firstname and surname (required) and email address (optional)</p>
+</li>
+</ul>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">response_type</span>": <span class="hljs-value"><span class="hljs-string">"in_channel"</span></span>,
+  "<span class="hljs-attribute">attachments</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">blocks</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"section"</span></span>,
+          "<span class="hljs-attribute">text</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"mrkdwn"</span></span>,
+            "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Hm. Sorry, I couldn't find this post!"</span>
+          </span>}
+        </span>},
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"image"</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"plain_text"</span></span>,
+            "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"You should create one!"</span></span>,
+            "<span class="hljs-attribute">emoji</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">image_url</span>": <span class="hljs-value"><span class="hljs-string">"https://media.giphy.com/media/1fkd6ZTBsxSosV4UTS/200w_d.gif"</span></span>,
+          "<span class="hljs-attribute">alt_text</span>": <span class="hljs-value"><span class="hljs-string">"You should create one!"</span>
+        </span>}
+      ]
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="tags" class="resource"><h3 class="resource-heading">Tags <a href="#tags" class="permalink">&nbsp;&para;</a></h3><p>Returns an object with metadata related to this tag.</p>
+<div id="tags-get" class="action get"><h4 class="action-heading"><div class="name">Tag details</div><a href="#tags-get" class="method get">GET</a><code class="uri">/tags{?slug}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/tags?<span class="hljs-attribute">slug=</span><span class="hljs-literal">juliet</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>slug</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>juliet</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7066</span></span>,
+        "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/tag/juliet"</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"&amp;amp; Juliet"</span></span>,
+        "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"juliet"</span></span>,
+        "<span class="hljs-attribute">taxonomy</span>": <span class="hljs-value"><span class="hljs-string">"post_tag"</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"&amp;amp; Juliet, breaking news, photos, comments, social media posts on this topic."</span>
+        <span class="hljs-string">"canonical_url"</span>: <span class="hljs-string">"http://0.0.0.0:3000/tag/fashion"</span></span>,
+        "<span class="hljs-attribute">seo_title</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+        "<span class="hljs-attribute">seo_description</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+        "<span class="hljs-attribute">seo_schema</span>": <span class="hljs-value"><span class="hljs-string">"{\"0\":{\"@type\":\"CollectionPage\",\"@context\":\"https:\\/\\/schema.org\",\"name\":\"Fashion\",\"url\":\"http:\\/\\/0.0.0.0:3000\\/tag\\/fashion\",\"description\":\"Fashion, breaking news, photos, comments, social media posts on this topic.\",\"mainEntity\":{\"@type\":\"ItemList\",\"itemListElement\":[]}},\"mainEntity\":{\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"url\":\"http:\\/\\/0.0.0.0:3000\\/money\\/when-is-black-friday-2024-and-what-are-the-best-deals-to-expect\\/844297\",\"name\":\"When is Black Friday 2024 and what are the best deals to expect?\"},{\"@type\":\"ListItem\",\"position\":2,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/phoebe-english-interview-sustainable-fashion-upcycled-partywear\\/841872\",\"name\":\"Phoebe English shares the inspiration behind her upcycled party season collection\"},{\"@type\":\"ListItem\",\"position\":3,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/best-christmas-gifts-stocking-filler-fashion-designer-high-street\\/458914\",\"name\":\"29 stylish stocking fillers under \\u00a3100 to please everyone on your to-buy-for list\"},{\"@type\":\"ListItem\",\"position\":4,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/what-to-wear-to-work-winter-office-essentials\\/841498\",\"name\":\"All the winter workwear essentials you need for the office\"},{\"@type\":\"ListItem\",\"position\":5,\"url\":\"http:\\/\\/0.0.0.0:3000\\/entertainment\\/tv\\/apple-tv-the-new-look\\/842130\",\"name\":\"Apple TV+ shares a first glimpse of new Coco Chanel drama The New Look\"},{\"@type\":\"ListItem\",\"position\":6,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/best-knitted-twin-sets-co-ords-winter\\/841060\",\"name\":\"9 of the best knitted twin sets to cosy up in this winter\"},{\"@type\":\"ListItem\",\"position\":7,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/how-to-wear-balletcore-trend\\/841146\",\"name\":\"How to nail the balletcore trend from top to toe\"},{\"@type\":\"ListItem\",\"position\":8,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/pjs-vs-partywear-what-to-wear-on-christmas-day\\/839082\",\"name\":\"PJs v party outfits: what to wear on Christmas Day\"},{\"@type\":\"ListItem\",\"position\":9,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/best-high-street-designer-accessories-under-50\\/373604\",\"name\":\"9 fashion, homeware and beauty items guaranteed to brighten your day \\u2013 all under \\u00a350\"},{\"@type\":\"ListItem\",\"position\":10,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/padded-quilted-jackets-coats\\/428106\",\"name\":\"Padded and quilted jackets: 11 longline coats to cosy up in this winter\"}]}}"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_tag"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Tag capulet does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Missing parameter(s): slug"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">params</span>": <span class="hljs-value">[
+      <span class="hljs-string">"slug"</span>
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="tagbot-categories" class="resource"><h3 class="resource-heading">Tagbot Categories <a href="#tagbot-categories" class="permalink">&nbsp;&para;</a></h3><p>Returns an object of the tagbot information related with this post.</p>
+<div id="tagbot-categories-get" class="action get"><h4 class="action-heading"><div class="name">Tagbot categories details</div><a href="#tagbot-categories-get" class="method get">GET</a><code class="uri">/tagbot_categories/{post_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/tagbot_categories/<span class="hljs-attribute" title="post_id">131956</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>post_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>131956</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">categories</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"/style and fashion/beauty"</span></span>,
+      "<span class="hljs-attribute">score</span>": <span class="hljs-value"><span class="hljs-number">0.998549</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"/style and fashion/beauty/cosmetics/eyeshadow"</span></span>,
+      "<span class="hljs-attribute">score</span>": <span class="hljs-value"><span class="hljs-number">0.950579</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"undefined_tagbot_category"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Tagbot category doesn't exist for this post"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="trends-lookup" class="resource"><h3 class="resource-heading">Trends lookup <a href="#trends-lookup" class="permalink">&nbsp;&para;</a></h3><p>Returns an object with metadata of the required categories.</p>
+<div id="trends-lookup-get" class="action get"><h4 class="action-heading"><div class="name">Trends lookup</div><a href="#trends-lookup-get" class="method get">GET</a><code class="uri">/trends{?id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/trends?<span class="hljs-attribute">id=</span><span class="hljs-literal">642</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>integer</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>642</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">642</span></span>,
+        "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">2095</span></span>,
+        "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/beauty"</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Beauty"</span></span>,
+        "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"beauty"</span></span>,
+        "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">taxonomy</span>": <span class="hljs-value"><span class="hljs-string">"category"</span></span>,
+        "<span class="hljs-attribute">acf</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">sell</span>": <span class="hljs-value"><span class="hljs-string">"Explore the latest beauty news, from hair, make-up &amp; skincare trends to beauty product reviews and exclusives"</span></span>,
+        }</span>,
+        "<span class="hljs-attribute">image</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+        "<span class="hljs-attribute">seo_title</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">seo_description</span>": <span class="hljs-value"><span class="hljs-string">"dssasf. gdggsgg"</span></span>,
+        "<span class="hljs-attribute">seo_schema</span>": <span class="hljs-value"><span class="hljs-string">"{\"0\":{\"@type\":\"CollectionPage\",\"@context\":\"https:\\/\\/schema.org\",\"name\":\"Beauty\",\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\",\"description\":\"Explore the latest beauty news, from hair, make-up &amp;amp; skincare trends to beauty product reviews and exclusives\",\"mainEntity\":{\"@type\":\"ItemList\",\"itemListElement\":[]}},\"mainEntity\":{\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/nobodys-child-unveils-debut-beauty-collection\\/844406\",\"name\":\"Nobody&amp;#8217;s Child unveils debut beauty collection\"},{\"@type\":\"ListItem\",\"position\":2,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/test-ankur-2\\/844374\",\"name\":\"test ankur\"},{\"@type\":\"ListItem\",\"position\":3,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/the-koi-and-the-lotus-how-sonia-gs-beautiful-new-brushes-came-to-be-2\\/844348\",\"name\":\"The Koi and The Lotus: How Sonia G\\u2019s Beautiful New Brushes Came to Be\"},{\"@type\":\"ListItem\",\"position\":4,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/6-editor-approved-essences-for-bright-supple-skin\\/844333\",\"name\":\"6 Editor-Approved Essences for Bright, Supple Skin\"},{\"@type\":\"ListItem\",\"position\":5,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/meet-mandelic-acid-the-ideal-aha-for-sensitive-skin\\/844324\",\"name\":\"Meet Mandelic Acid, the Ideal AHA for Sensitive Skin\"},{\"@type\":\"ListItem\",\"position\":6,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/the-koi-and-the-lotus-how-sonia-gs-beautiful-new-brushes-came-to-be\\/844318\",\"name\":\"The Koi and The Lotus: How Sonia G\\u2019s Beautiful New Brushes Came to Be\"},{\"@type\":\"ListItem\",\"position\":7,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/i-wouldnt-take-anything-back-suki-waterhouse-on-her-wild-ride-from-london-it-girl-to-la-mum-and-finding-pure-love-with-robert-pattinson\\/844072\",\"name\":\"I Wouldn\\u2019t Take Anything Back\\u201d: Suki Waterhouse On Her Wild Ride From London It-Girl To LA Mum, And Finding \\u201cPure Love\\u201d With Robert Pattinson\"},{\"@type\":\"ListItem\",\"position\":8,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/test-ankur-hjh\\/844066\",\"name\":\"test ankur hjh\"},{\"@type\":\"ListItem\",\"position\":9,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/salespage-the-summer-issue-is-here-featuring-kendall-jenner\\/843766\",\"name\":\"SalesPage: The Summer issue is here featuring Kendall Jenner\"},{\"@type\":\"ListItem\",\"position\":10,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/another-test-post-2\\/843660\",\"name\":\"Another Test Post\"}]}}"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_category"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Categories not found"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"No values passed for the id parameter"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="users" class="resource"><h3 class="resource-heading">Users <a href="#users" class="permalink">&nbsp;&para;</a></h3><p>Returns an object with the user/author metadata.</p>
+<div id="users-get" class="action get"><h4 class="action-heading"><div class="name">User details</div><a href="#users-get" class="method get">GET</a><code class="uri">/users{?slug}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/users?<span class="hljs-attribute">slug=</span><span class="hljs-literal">willbays</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>slug</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>willbays</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">63</span></span>,
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Will Bays"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Will Bays - for &lt;a href=\"https://www.stylist.co.uk\"&gt;stylist.co.uk&lt;/a&gt;, read the latest news stories, features and updates here."</span></span>,
+  "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"https://staging.stylist.co.uk/author/willbays"</span></span>,
+  "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"willbays"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"author"</span></span>,
+  "<span class="hljs-attribute">headshot</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"no_user"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"User johnny-bravo does not exist"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">404</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"rest_missing_callback_param"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Missing parameter(s): slug"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">params</span>": <span class="hljs-value">[
+      <span class="hljs-string">"slug"</span>
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="email-unsubscribe-questions" class="resource"><h3 class="resource-heading">Email Unsubscribe Questions <a href="#email-unsubscribe-questions" class="permalink">&nbsp;&para;</a></h3><p>Returns the email unsubscribe questions and answers.
+The answers will be rendered in a random order on every call.</p>
+<div id="email-unsubscribe-questions-get" class="action get"><h4 class="action-heading"><div class="name">Unsubscribe Questions</div><a href="#email-unsubscribe-questions-get" class="method get">GET</a><code class="uri">/unsubscribe-questions</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/unsubscribe-questions</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">topics</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">topic_id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"Why are you leaving us ?"</span></span>,
+      "<span class="hljs-attribute">answers</span>": <span class="hljs-value">[
+        <span class="hljs-string">"Too many emails!"</span>,
+        <span class="hljs-string">"I never wanted to subscribe!"</span>,
+        <span class="hljs-string">"Not interested in the topics!"</span>
+      ]</span>,
+      "<span class="hljs-attribute">resub_text</span>": <span class="hljs-value"><span class="hljs-string">"Are you sure you want to leave us ?"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">topic_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"What could we have done better ?"</span></span>,
+      "<span class="hljs-attribute">answers</span>": <span class="hljs-value">[
+        <span class="hljs-string">"Send more interesting emails. "</span>,
+        <span class="hljs-string">"Not subscribe me at all."</span>,
+        <span class="hljs-string">"Send less emails. "</span>
+      ]</span>,
+      "<span class="hljs-attribute">resub_text</span>": <span class="hljs-value"><span class="hljs-string">"Whaa?"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="verticals" class="resource"><h3 class="resource-heading">Verticals <a href="#verticals" class="permalink">&nbsp;&para;</a></h3><p>Return an array of vertical objects.</p>
+<div id="verticals-get" class="action get"><h4 class="action-heading"><div class="name">Verticals array</div><a href="#verticals-get" class="method get">GET</a><code class="uri">/verticals</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/verticals</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+        {
+                "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7549</span></span>,
+                "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Stylist Loves"</span></span>,
+                "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"stylist-loves"</span></span>,
+                "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Sign up for our essential edit of what to buy, see, read and do while at home and also receive our 11-page Ultimate Guide To Making Your Home Feel Bigger."</span></span>,
+                "<span class="hljs-attribute">sell</span>": <span class="hljs-value"><span class="hljs-string">"Sign up for our essential edit of what to buy, see, read and do while at home and also receive our 11-page Ultimate Guide To Making Your Home Feel Bigger."</span></span>,
+                "<span class="hljs-attribute">delivered</span>": <span class="hljs-value"><span class="hljs-string">"4x week"</span></span>,
+                "<span class="hljs-attribute">telemetry_vertical</span>": <span class="hljs-value"><span class="hljs-number">38</span></span>,
+                "<span class="hljs-attribute">primary_colour</span>": <span class="hljs-value"><span class="hljs-string">"#acd2df"</span></span>,
+                "<span class="hljs-attribute">accent_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                "<span class="hljs-attribute">thumbnail_image</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/03/27132139/stylist-loves-email-sign-up-page-v11.gif"</span></span>,
+                "<span class="hljs-attribute">image</span>": <span class="hljs-value">{}</span>,
+                "<span class="hljs-attribute">crop</span>": <span class="hljs-value"><span class="hljs-string">"original"</span></span>,
+                "<span class="hljs-attribute">most_recent_email_id</span>": <span class="hljs-value"><span class="hljs-number">396386</span>
+                <span class="hljs-string">"signup_widget"</span>: {
+                    "<span class="hljs-attribute">background_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                    "<span class="hljs-attribute">text_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                    "<span class="hljs-attribute">button_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                    "<span class="hljs-attribute">button_text_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                }</span>,
+        },
+        {
+                "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">8392</span></span>,
+                "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Strong Women"</span></span>,
+                "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"strong-women"</span></span>,
+                "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Join our fitness community and get motivated with the latest workouts, nutritious recipes, expert tips and gym kit inspiration. You'll also receive A Beginner's Guide To Strength Training when you sign up."</span></span>,
+                "<span class="hljs-attribute">sell</span>": <span class="hljs-value"><span class="hljs-string">"Join our fitness community and get motivated with the latest workouts, nutritious recipes, expert tips and gym kit inspiration. You'll also receive A Beginner's Guide To Strength Training when you sign up."</span></span>,
+                "<span class="hljs-attribute">delivered</span>": <span class="hljs-value"><span class="hljs-string">"weekly"</span></span>,
+                "<span class="hljs-attribute">telemetry_vertical</span>": <span class="hljs-value"><span class="hljs-number">39</span></span>,
+                "<span class="hljs-attribute">primary_colour</span>": <span class="hljs-value"><span class="hljs-string">"#ffc2c4"</span></span>,
+                "<span class="hljs-attribute">accent_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                "<span class="hljs-attribute">thumbnail_image</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/03/27131831/strongwomenplaceholdings.jpg"</span></span>,
+                "<span class="hljs-attribute">image</span>": <span class="hljs-value">{}</span>,
+                "<span class="hljs-attribute">crop</span>": <span class="hljs-value"><span class="hljs-string">"square"</span></span>,
+                "<span class="hljs-attribute">most_recent_email_id</span>": <span class="hljs-value"><span class="hljs-number">396102</span>
+                <span class="hljs-string">"signup_widget"</span>: {
+                      "<span class="hljs-attribute">background_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                      "<span class="hljs-attribute">text_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                      "<span class="hljs-attribute">button_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                      "<span class="hljs-attribute">button_text_colour</span>": <span class="hljs-value"><span class="hljs-string">"#000000"</span></span>,
+                }</span>,
+        },
+]</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="categories-1" class="resource"><h3 class="resource-heading">Categories <a href="#categories-1" class="permalink">&nbsp;&para;</a></h3><p>Returns Wordpress Settings.</p>
+<div id="categories-get-1" class="action get"><h4 class="action-heading"><div class="name">Category details</div><a href="#categories-get-1" class="method get">GET</a><code class="uri">/settings</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/settings</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">app_onboarding_settings</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">main_image_desktop</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist-staging.s3.eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1.jpg"</span></span>,
+      "<span class="hljs-attribute">alt</span>": <span class="hljs-value"><span class="hljs-string">"Stylist Issue 615"</span></span>,
+      "<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-number">1438</span></span>,
+      "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1920</span></span>,
+      "<span class="hljs-attribute">caption</span>": <span class="hljs-value"><span class="hljs-string">"Stylist Issue 615"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Stylist Issue 615"</span></span>,
+      "<span class="hljs-attribute">sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">thumbnail</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-256x256.jpg"</span></span>,
+        "<span class="hljs-attribute">thumbnail-width</span>": <span class="hljs-value"><span class="hljs-number">256</span></span>,
+        "<span class="hljs-attribute">thumbnail-height</span>": <span class="hljs-value"><span class="hljs-number">256</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1120x1120.jpg"</span></span>,
+        "<span class="hljs-attribute">square-width</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">square-height</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">portrait</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1120x1680.jpg"</span></span>,
+        "<span class="hljs-attribute">portrait-width</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">portrait-height</span>": <span class="hljs-value"><span class="hljs-number">1680</span></span>,
+        "<span class="hljs-attribute">landscape</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1438x959.jpg"</span></span>,
+        "<span class="hljs-attribute">landscape-width</span>": <span class="hljs-value"><span class="hljs-number">1438</span></span>,
+        "<span class="hljs-attribute">landscape-height</span>": <span class="hljs-value"><span class="hljs-number">959</span></span>,
+        "<span class="hljs-attribute">letterbox</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1438x753.jpg"</span></span>,
+        "<span class="hljs-attribute">letterbox-width</span>": <span class="hljs-value"><span class="hljs-number">1438</span></span>,
+        "<span class="hljs-attribute">letterbox-height</span>": <span class="hljs-value"><span class="hljs-number">753</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">doris_sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">10_13</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-255x331.jpg"</span></span>,
+        "<span class="hljs-attribute">10_13_width</span>": <span class="hljs-value"><span class="hljs-number">255</span></span>,
+        "<span class="hljs-attribute">10_13_height</span>": <span class="hljs-value"><span class="hljs-number">331</span></span>,
+        "<span class="hljs-attribute">5_4</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-972x777.jpg"</span></span>,
+        "<span class="hljs-attribute">5_4_width</span>": <span class="hljs-value"><span class="hljs-number">972</span></span>,
+        "<span class="hljs-attribute">5_4_height</span>": <span class="hljs-value"><span class="hljs-number">777</span></span>,
+        "<span class="hljs-attribute">10_8</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1280x1024.jpg"</span></span>,
+        "<span class="hljs-attribute">10_8_width</span>": <span class="hljs-value"><span class="hljs-number">1280</span></span>,
+        "<span class="hljs-attribute">10_8_height</span>": <span class="hljs-value"><span class="hljs-number">1024</span></span>,
+        "<span class="hljs-attribute">16_9</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1438x809.jpg"</span></span>,
+        "<span class="hljs-attribute">16_9_width</span>": <span class="hljs-value"><span class="hljs-number">1438</span></span>,
+        "<span class="hljs-attribute">16_9_height</span>": <span class="hljs-value"><span class="hljs-number">809</span></span>,
+        "<span class="hljs-attribute">25_9</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1000x360.jpg"</span></span>,
+        "<span class="hljs-attribute">25_9_width</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+        "<span class="hljs-attribute">25_9_height</span>": <span class="hljs-value"><span class="hljs-number">360</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1120x1120.jpg"</span></span>,
+        "<span class="hljs-attribute">square_width</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">square_height</span>": <span class="hljs-value"><span class="hljs-number">1120</span>
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">main_image_tablet</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist-staging.s3.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2.jpg"</span></span>,
+      "<span class="hljs-attribute">alt</span>": <span class="hljs-value"><span class="hljs-string">"Nobody's Child - Stylist VIP"</span></span>,
+      "<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-number">1920</span></span>,
+      "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1920</span></span>,
+      "<span class="hljs-attribute">caption</span>": <span class="hljs-value"><span class="hljs-string">"Nobody's Child - Stylist VIP"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Nobody's Child - Stylist VIP"</span></span>,
+      "<span class="hljs-attribute">sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">thumbnail</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-256x256.jpg"</span></span>,
+        "<span class="hljs-attribute">thumbnail-width</span>": <span class="hljs-value"><span class="hljs-number">256</span></span>,
+        "<span class="hljs-attribute">thumbnail-height</span>": <span class="hljs-value"><span class="hljs-number">256</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1120x1120.jpg"</span></span>,
+        "<span class="hljs-attribute">square-width</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">square-height</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">portrait</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1120x1680.jpg"</span></span>,
+        "<span class="hljs-attribute">portrait-width</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">portrait-height</span>": <span class="hljs-value"><span class="hljs-number">1680</span></span>,
+        "<span class="hljs-attribute">landscape</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1680x1120.jpg"</span></span>,
+        "<span class="hljs-attribute">landscape-width</span>": <span class="hljs-value"><span class="hljs-number">1680</span></span>,
+        "<span class="hljs-attribute">landscape-height</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">letterbox</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1680x880.jpg"</span></span>,
+        "<span class="hljs-attribute">letterbox-width</span>": <span class="hljs-value"><span class="hljs-number">1680</span></span>,
+        "<span class="hljs-attribute">letterbox-height</span>": <span class="hljs-value"><span class="hljs-number">880</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">doris_sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">10_13</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-255x331.jpg"</span></span>,
+        "<span class="hljs-attribute">10_13_width</span>": <span class="hljs-value"><span class="hljs-number">255</span></span>,
+        "<span class="hljs-attribute">10_13_height</span>": <span class="hljs-value"><span class="hljs-number">331</span></span>,
+        "<span class="hljs-attribute">5_4</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-972x777.jpg"</span></span>,
+        "<span class="hljs-attribute">5_4_width</span>": <span class="hljs-value"><span class="hljs-number">972</span></span>,
+        "<span class="hljs-attribute">5_4_height</span>": <span class="hljs-value"><span class="hljs-number">777</span></span>,
+        "<span class="hljs-attribute">10_8</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1280x1024.jpg"</span></span>,
+        "<span class="hljs-attribute">10_8_width</span>": <span class="hljs-value"><span class="hljs-number">1280</span></span>,
+        "<span class="hljs-attribute">10_8_height</span>": <span class="hljs-value"><span class="hljs-number">1024</span></span>,
+        "<span class="hljs-attribute">16_9</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1920x1080.jpg"</span></span>,
+        "<span class="hljs-attribute">16_9_width</span>": <span class="hljs-value"><span class="hljs-number">1920</span></span>,
+        "<span class="hljs-attribute">16_9_height</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">25_9</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1000x360.jpg"</span></span>,
+        "<span class="hljs-attribute">25_9_width</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+        "<span class="hljs-attribute">25_9_height</span>": <span class="hljs-value"><span class="hljs-number">360</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1120x1120.jpg"</span></span>,
+        "<span class="hljs-attribute">square_width</span>": <span class="hljs-value"><span class="hljs-number">1120</span></span>,
+        "<span class="hljs-attribute">square_height</span>": <span class="hljs-value"><span class="hljs-number">1120</span>
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">main_image_mobile</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">alt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">caption</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">thumbnail</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">thumbnail-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">thumbnail-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">square-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">portrait</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">portrait-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">portrait-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">landscape</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">landscape-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">landscape-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">letterbox</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">letterbox-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">letterbox-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">doris_sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">10_13</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">10_13_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">10_13_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">5_4</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">5_4_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">5_4_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">10_8</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">10_8_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">10_8_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">16_9</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">16_9_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">16_9_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">25_9</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">25_9_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">25_9_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">square_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">qr_code_google</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist-staging.s3.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1.jpg"</span></span>,
+      "<span class="hljs-attribute">alt</span>": <span class="hljs-value"><span class="hljs-string">"sarah"</span></span>,
+      "<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+      "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1920</span></span>,
+      "<span class="hljs-attribute">caption</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"tsg"</span></span>,
+      "<span class="hljs-attribute">sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">thumbnail</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-256x256.jpg"</span></span>,
+        "<span class="hljs-attribute">thumbnail-width</span>": <span class="hljs-value"><span class="hljs-number">256</span></span>,
+        "<span class="hljs-attribute">thumbnail-height</span>": <span class="hljs-value"><span class="hljs-number">256</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x1080.jpg"</span></span>,
+        "<span class="hljs-attribute">square-width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">square-height</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">portrait</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x1620.jpg"</span></span>,
+        "<span class="hljs-attribute">portrait-width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">portrait-height</span>": <span class="hljs-value"><span class="hljs-number">1620</span></span>,
+        "<span class="hljs-attribute">landscape</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x720.jpg"</span></span>,
+        "<span class="hljs-attribute">landscape-width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">landscape-height</span>": <span class="hljs-value"><span class="hljs-number">720</span></span>,
+        "<span class="hljs-attribute">letterbox</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x566.jpg"</span></span>,
+        "<span class="hljs-attribute">letterbox-width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">letterbox-height</span>": <span class="hljs-value"><span class="hljs-number">566</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">doris_sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">10_13</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-255x331.jpg"</span></span>,
+        "<span class="hljs-attribute">10_13_width</span>": <span class="hljs-value"><span class="hljs-number">255</span></span>,
+        "<span class="hljs-attribute">10_13_height</span>": <span class="hljs-value"><span class="hljs-number">331</span></span>,
+        "<span class="hljs-attribute">5_4</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-972x777.jpg"</span></span>,
+        "<span class="hljs-attribute">5_4_width</span>": <span class="hljs-value"><span class="hljs-number">972</span></span>,
+        "<span class="hljs-attribute">5_4_height</span>": <span class="hljs-value"><span class="hljs-number">777</span></span>,
+        "<span class="hljs-attribute">10_8</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x864.jpg"</span></span>,
+        "<span class="hljs-attribute">10_8_width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">10_8_height</span>": <span class="hljs-value"><span class="hljs-number">864</span></span>,
+        "<span class="hljs-attribute">16_9</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x608.jpg"</span></span>,
+        "<span class="hljs-attribute">16_9_width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">16_9_height</span>": <span class="hljs-value"><span class="hljs-number">608</span></span>,
+        "<span class="hljs-attribute">25_9</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1000x360.jpg"</span></span>,
+        "<span class="hljs-attribute">25_9_width</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+        "<span class="hljs-attribute">25_9_height</span>": <span class="hljs-value"><span class="hljs-number">360</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x1080.jpg"</span></span>,
+        "<span class="hljs-attribute">square_width</span>": <span class="hljs-value"><span class="hljs-number">1080</span></span>,
+        "<span class="hljs-attribute">square_height</span>": <span class="hljs-value"><span class="hljs-number">1080</span>
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">qr_code_apple</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">alt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">caption</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">thumbnail</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">thumbnail-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">thumbnail-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">square-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">portrait</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">portrait-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">portrait-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">landscape</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">landscape-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">landscape-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">letterbox</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">letterbox-width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">letterbox-height</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">doris_sizes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">10_13</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">10_13_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">10_13_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">5_4</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">5_4_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">5_4_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">10_8</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">10_8_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">10_8_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">16_9</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">16_9_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">16_9_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">25_9</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">25_9_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">25_9_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square</span>": <span class="hljs-value"><span class="hljs-string">"http://cms.local/"</span></span>,
+        "<span class="hljs-attribute">square_width</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">square_height</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"test "</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"hjdgjf"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 30 Sep 2024</p><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
+
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
+  }
+
+  return filtered;
+}
+
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    autoCollapse();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    autoCollapse();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>
