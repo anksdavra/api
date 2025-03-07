@@ -1,0 +1,1170 @@
+FORMAT: 1A
+
+# Croissant API - V1
+
+Documentation for Croissant API endpoints.
+
+## Categories [/categories{?slug}]
+Returns an object with metadata of the required category.
+
++ Parameters
+    + slug: beauty (required, string)
+
+### Category details [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 642,
+                "count": 2095,
+                "link": "https://staging.stylist.co.uk/beauty",
+                "name": "Beauty",
+                "slug": "beauty",
+                "parent": null,
+                "taxonomy": "category",
+                "acf": {
+                        "sell": "Explore the latest beauty news, from hair, make-up & skincare trends to beauty product reviews and exclusives",
+                },
+                "seo_description": "test 1"
+        }
++ Response 404 (application/json)
+
+        {
+                "code": "no_category",
+                "message": "Category poop does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): slug",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "slug"
+                        ]
+                }
+        }
+
+## Category Hub  [/category-hub{?slug,page,per_page}]
+Returns an object with metadata of the hub page associated with the required category.
+
++ Parameters
+    + slug: beauty (required, string)
+    + page: 1 (optional, integer)
+    + per_page: 24 (optional, integer)
+
+### Category Hub [GET]
+
++ Response 200 (application/json)
+
+        {
+                "category_name": "Beauty",
+                "latest_posts": [
+                    {}
+                ],
+                "popular_posts": [
+                    {}
+                ],
+                "acf": {
+                    "widgets": [
+                        {
+                            "acf_fc_layout": "paragraph",
+                            "paragraph": "<p>bla bla bla</p>\n",
+                            "hide_widget_from_page": false
+                        }
+                    ]
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): slug",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "slug"
+                        ]
+                }
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "no_category",
+                "message": "Category poop does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 418 (application/json)
+
+        {
+                "code": "no_hub_page",
+                "message": "A hub page has not been associated with this category",
+                "data": {
+                        "status": 418
+                }
+        }
+
+## Emails [/emails/{id}{?tapestry_hash,p}]
+Return an object with the email information.
+
++ Parameters
+    + id: 271419 (required, number)
+    + tapestry_hash: 716de23e46b9362fb6061f8e246c517b81463848 (optional, string)
+    + p: email_id (optional, number)
+**Please note that the optional parameters are used to retrieve information from preview emails and have to be used together**
+
+### Email details [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 271419,
+                "date": "2019-06-14T14:55:57",
+                "date_gmt": "2019-06-14T13:55:57",
+                "modified": "2020-01-30T15:52:18",
+                "modified_gmt": "2020-01-30T15:52:18",
+                "link": "https://staging.stylist.co.uk/email/271419",
+                "type": "email",
+                "title": {
+                        "rendered": "I was charged £750 to post a letter..."
+                },
+                "slug": "i-was-charged-750-to-post-a-letter",
+                "acf": {
+                        "campaign_name": "20190614 - [S] - NATWEST - PARTNERSHIP",
+                        "date_picker": "2023-01-12, 2023",
+                        "preview_line": "And other fees you should know about when buying a house",
+                        "litmus_tracking_id": "ggzaooq5",
+                        "email_vertical": {},
+                        "widgets": [],
+                        "sponsored": true,
+                        "disable_advert_slots": 1561852800,
+                        "affiliate_links": false,
+                        "co_author": false,
+                        "magnum_opus": false,
+                        "sponsor_name": "Natwest",
+                        "sponsor_logo": {},
+                        "sponsor_link": "http://www.natwest.co.uk",
+                        "sponsor_type": "",
+                        "sponsor_label": "in-partnership-with",
+                        "header_image": {},
+                        "primary_colour": "#02a3aa",
+                        "accent_colour": "",
+                        "hero_images": [],
+                        "tagbot_data": {},
+                        "package_ids": "",
+                        "seo_schema": "[{\"@type\":\"Article\",\"@context\":\"https://schema.org\",\"@id\":\"http://0.0.0.0:3000/email/751577\",\"publisher\":{\"@type\":\"Organization\",\"@context\":\"https://schema.org\",\"@id\":\"https://www.thestylistgroup.com/\",\"name\":\"The Stylist Group Ltd\",\"url\":\"https://www.thestylistgroup.com/\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2021/10/19180919/stylist-logo.png\",\"width\":800,\"height\":800},\"sameAs\":[\"https://www.facebook.com/StylistMagazine\",\"https://twitter.com/stylistmagazine\",\"https://www.instagram.com/stylistmagazine\",\"https://www.pinterest.co.uk/stylistmagazine\"]},\"isAccessibleForFree\":true,\"image\":[],\"author\":[{\"type\":\"Person\",\"name\":\"Natasha Gandotra\",\"sameAs\":\"http://0.0.0.0:3000/author/natasha-gandotra\",\"image\":\"\"}],\"datePublished\":\"2023-01-13T15:02:45\",\"headline\":\"\",\"articleSection\":\"\",\"dateModified\":\"2023-01-13T15:02:45\",\"timeRequired\":0,\"keywords\":\"\",\"description\":\"\",\"mainEntityOfPage\":\"http://0.0.0.0:3000/email/751577\"}]",
+                        "image_credits": "Getty"
+                },
+                "_embedded": {}
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "undefined_post",
+                "message": "This post does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
+## Campaign [/campaign{?slug}]
+Returns an email id based on a campaign name.
+
++ Parameters
+    + slug: `20190906-FRI-DAILY` (required, string)
+
+### Email id [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 295738,
+                "sponsor_name": "Burger King",
+                "project_id": 123
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "undefined_email",
+                "message": "There is no email with campaign name 666-the-number-of-the-beast-CAMPAIGN",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): slug",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "slug"
+                        ]
+                }
+        }
+
+## My Stylist [/my-stylist]
+Returns My Stylist settings
+
+### My Stylist [GET]
+
++ Response 200
+
+        {
+                "navigation": [
+                                {
+                                        "label": "Discover",
+                                        "second_level": [
+                                                {
+                                                        "label": "style",
+                                                }
+                                        ]
+                                }
+                ],
+                "faqs": [
+                        {
+                                "faq_topic_header": "Topic header 1",
+                                "faqs": [
+                                        {
+                                                "question": "Faq 1",
+                                                "answer": "<p>Answer 1</p>\n"
+                                        }
+                                ]
+                        }
+                ],
+                "assets": {
+                        "master_image": {
+                                "url": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/06/08164923/halloumi-sandwich-recipe-vegetarian.jpg",
+                                "alt": "Halloumi sandwich recipe with green goddess sauce",
+                                "width": 1362,
+                                "height": 2048,
+                                "caption": "Halloumi sandwich with green goddess sauce recipe",
+                                "description": "Faith Mason/Quadrille Publishing",
+                                "sizes": {}
+                        },
+                        "logo_image": false
+                },
+                "popular_categories": [
+                        {
+                                "term_id": 563,
+                                "name": "The Style List"
+                        },
+                        {
+                                "term_id": 6789,
+                                "name": "Home"
+                        },
+                ],
+                "cancellation_survey": [
+                        {
+                                "question": "Why are you cancelling ?",
+                                "answers": [
+                                        {
+                                                "answer": "<p>reason 1</p>\n"
+                                        },
+                                        {
+                                                "answer": "<p>reason 2</p>\n"
+                                        }
+                                ]
+                        }
+                ],
+                "membership_offers": [
+                                {
+                                        "offers_group_header": "MyStylist Offers",
+                                        "offers": []
+                                        "total": 0
+                                        "package_ids": []
+                                }
+                ],
+        }
+
+## Popular [/popular{?start_date,end_date,from_date,results,tag,categories}]
+Returns an array of popular posts in google analytics matching the dates and filters.
+
++ Parameters
+    + start_date: `2020-02-02` (required, string)
+    + end_date: `2020-02-03` (required, string)
+    + from_date: `2020-02-02` (optional, string)
+    + results: 1 (optional, number)
+    + tag: Baftas (optional, string)
+    + categories: People (optional, string)
+
+### Popular results [GET]
+
++ Response 200 (application/json)
+
+        [
+                {
+                        "id": 351342,
+                        "date": "2020-02-02T23:27:17",
+                        "date_gmt": "2020-02-02T23:27:17",
+                        "link": "https://staging.stylist.co.uk/people/baftas-2020-kate-middleton-laughs-brad-pitt-prince-harry-joke/351342",
+                        "title": {
+                                "rendered": "Baftas 2020: Kate Middleton’s reaction to Brad Pitt’s Harry joke is everything"
+                        },
+                        "acf": {
+                                "short_headline": "Baftas 2020: Kate Middleton’s reaction to Brad Pitt’s Harry joke is everything",
+                                "sell": "The Duchess of Cambridge shows she’s game for a laugh, despite recent royal tensions.",
+                                "sponsor_name": "",
+                                "sponsor_link": "",
+                                "sponsor_label": null,
+                                "sponsor_logo": "",
+                                "hero_images": [],
+                                "brand_logo": "",
+                                "category": {},
+                                "series": [],
+                                "package_ids": "",
+                                "tagbot_data": {},
+                                "review_rating": ""
+                        },
+                        "word_count": 342
+                        "_embedded": {
+                                "author": [
+                                        {
+                                                "id": 4,
+                                                "name": "Anna Brech",
+                                                "url": "",
+                                                "description": "Anna Brech is a freelance journalist and former editor for stylist.co.uk. Her six-year stint on the site saw her develop a vociferous appetite for live Analytics, feminist opinion and good-quality gin in roughly equal measure. She enjoys writing across all areas of women’s lifestyle content but has a soft spot for books and escapist travel content.",
+                                                "link": "https://staging.stylist.co.uk/author/anna-brech",
+                                                "slug": "anna-brech"
+                                        }
+                                ]
+                        },
+                        "sticky": false
+                }
+        ]
+
++ Response 404 (application/json)
+
+        []
+
++ Response 400 (application/json)
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): start_date",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "start_date",
+                                "end_date"
+                        ]
+                }
+        }
+
+## Post Object [/posts/{post_id}]
+Returns a single article
+
++ Parameters
+    + post_id: 397218 (required, integer)
+
+### Post details [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 397218,
+                "date": "2020-06-17T18:03:12",
+                "date_gmt": "2020-06-17T17:03:12",
+                "modified": "2020-06-18T14:56:44",
+                "modified_gmt": "2020-06-18T13:56:44",
+                "link": "https://staging.stylist.co.uk/books/post-for-the-testings-of-sortingoffice/397218",
+                "type": "post",
+                "title": {},
+                "slug": "post-for-the-testings-of-sortingoffice",
+                "acf": {},
+                "next_article": {},
+                "time_to_read": 8,
+                "word_count": 1693,
+                "_embedded": {
+                        "author": [
+                                {
+                                "id": 711,
+                                "name": "Diogo Costa",
+                                "url": "",
+                                "description": "",
+                                "link": "https://staging.stylist.co.uk/author/diogo-costa",
+                                "slug": "diogo-costa"
+                                }
+                        ]
+                }
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "undefined_post",
+                "message": "This post does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
+## Post List [/posts{?ids,tags,tags_exclude,categories,categories_exclude,series,series_exclude,packages,packages_exclude,authors,authors_exclude,post_types,sticky,post_types,offset,page,per_page,orderby,order,posts_exclude}]
+Returns a list of articles based on parameters passed on.
+
++ Parameters
+    + ids: 1234,43221 (optional, integer)
+    + tags: music (optional, string)
+    + tags_exclude: food (optional, string)
+    + categories: beauty (optional, string)
+    + categories_exclude: books (optional, string)
+    + series: loves (optional, string)
+    + series_exclude: strong (optional, string)
+    + packages: stylist-live (optional, string)
+    + packages_exclude: trainning-club (optional, string)
+    + authors: willbays (optional, string)
+    + post_types: post (optional, string)
+    Just for clarification, here is a valid list of `post_types`:
+        - post
+        - page
+        - longform
+        - quiz_post
+        - sponsored_post
+        - sponsored_longform
+        - sponsored_quiz_post
+    + posts_exclude: 12345,23456 (optional, string)
+    Posts with the specified ids will be omitted from the results
+    + authors_exclude: Adrian.Cristea (optional, string)
+    All string params accept multiple values separated by commas. Example: `?tags=music,food`
+    + sticky: 1 (optional, integer)
+    Accepts `1` for true and `0` for false:
+        - if 1, it will return ONLY sticky posts
+        - if 0, it will return NO sticky posts
+        - if not used, the sticky posts will be treated as a normal post and return in chronological order
+    + offset: 1 (optional, integer)
+    Wordpress will ignore `page` post types if `offset` is used
+    + page: 1 (optional, integer)
+    + per_page: 3 (optional, integer)
+    + order: DESC (optional, string)
+    Accepted values: `ASC` or `DESC`, default: `DESC`
+    + orderby: title (optional, string)
+    Accepted values:
+        - `ID` order by post ID
+        - `title` order by title
+        - `type` order by post type
+        - `date` order by publish date
+        - `modified` order by modified date
+        - `parent` order by post parent
+        - `rand` random order
+    Default value: `date`
+
+### Posts list [GET]
+
++ Response 200 (application/json)
+
+        [
+                {
+                        "id": 397218,
+                        "date": "2020-06-17T18:03:12",
+                        "date_gmt": "2020-06-17T17:03:12",
+                        "link": "https://staging.stylist.co.uk/books/post-for-the-testings-of-sortingoffice/397218",
+                        "title": {},
+                        "acf": {},
+                        "_embedded": {},
+                        "sticky": false
+                },
+                {
+                        "id": 397165,
+                        "date": "2020-06-12T14:35:48",
+                        "date_gmt": "2020-06-12T13:35:48",
+                        "link": "https://staging.stylist.co.uk/fashion/test-post-voucher-design/397165",
+                        "title": {},
+                        "acf": {},
+                        "_embedded": {
+                                "author": [
+                                        {
+                                                "id": 63,
+                                                "name": "Will Bays",
+                                                "url": "",
+                                                "description": "",
+                                                "link": "https://staging.stylist.co.uk/author/willbays",
+                                                "slug": "willbays"
+                                        }
+                                ]
+                        },
+                        "sticky": false
+                }
+        ]
+
++ Response 404 (application/json)
+
+        {
+                "code": "no_posts",
+                "message": "No posts returned for this filter",
+                "data": {
+                        "status": 404
+                }
+        }
+
+## Search [/search/{?s,per_page,page}]
+Returns an array of posts based on a string search
+
++ Parameters
+    + s: loves (required, string) - string search
+    + per_page: 2 (optional, number) - number of posts per page
+    + page: 3 (optional, number) - number of desired page
+
+### Search results [GET]
+
++ Response 200 (application/json)
+
+        [
+                {
+                        "id": 314291,
+                        "date": "2019-10-18T17:08:04",
+                        "date_gmt": "2019-10-18T16:08:04",
+                        "link": "https://staging.stylist.co.uk/life/amazon-modern-love-review-best-episodes-essays-anne-hathaway-tina-fey-dating-relationships/314291",
+                        "title": {
+                                "rendered": "Modern Love review: best essays and episodes from the new Amazon series"
+                        },
+                        "acf": {},
+                        "_embedded": {},
+                        "sticky": false
+                },
+                {
+                        "id": 303111,
+                        "date": "2019-10-07T11:00:04",
+                        "date_gmt": "2019-10-07T10:00:04",
+                        "link": "https://staging.stylist.co.uk/books/books-reading-nostalgia-best-books-2009/303111",
+                        "title": {
+                                "rendered": "The books we fell in (and sometimes out of) love with in 2009"
+                        },
+                        "acf": {},
+                        "_embedded": {},
+                        "sticky": false
+                }
+        ]
+
++ Response 404 (application/json)
+
+        {
+                "code": "undefined_post",
+                "message": "This post does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
+## Series [/series{?slug}]
+Returns an object with metadata about a series taxonomy.
+
++ Parameters
+    + slug: loves (required, string)
+
+### Series details [GET]
+
++ Response 200 (application/json)
+
+        {
+                "term_id": 7553,
+                "name": "Stylist Loves",
+                "slug": "loves",
+                "term_group": 0,
+                "term_taxonomy_id": 7553,
+                "taxonomy": "series",
+                "description": "Cult buys and can’t-miss experiences for women who want more from their world",
+                "parent": 0,
+                "count": 552,
+                "filter": "raw",
+                "link": "https://staging.stylist.co.uk/series/loves",
+                "primary_colour": "#acd2df",
+                "accent_colour": "#000000",
+                "series_nav_label": {
+                        "url": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/04/23141322/loves_series_logo_2004_v1.svg",
+                        "alt": "",
+                        "width": null,
+                        "height": null,
+                        "caption": "",
+                        "description": "",
+                        "sizes": []
+                },
+                "series_badge": {},
+                "series_banner": {},
+                "series_mobile_banner": {},
+                "banner_background_colour": "#acd2df",
+                "sponsored": false,
+                "disable_advert_slots": "",
+                "series_canonical_url": "https://google.com",
+                "seo_schema": "",
+                "seo_title": "asdasdas",
+                "seo_description": "adsasdasdadad",
+                "old_article_image_override": "false"
+                "text_accent_colour": ""
+                "project_id": ""
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "no_series",
+                "message": "Series tremendous-series-best-series-in-the-world does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): slug",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "slug"
+                        ]
+                }
+        }
+
+## Post/User Lookup/Create [/slackbot/posts{?team_id,channel_name,text}]
+
++ Parameters
+    + team_id: team id (required, string)
+    + channel_name: channel name (required, string)
+    + text: post id (required, string)
+    Depending on the context, the `text` parameter can take different values:
+        - To lookup a post, use post id.
+        - To lookup a user, use surname.
+        - To create a new user, use firstname and surname (required) and email address (optional)
+
+### Slackbot interaction [POST]
+
++ Response 200
+
+        {
+                "status": 200,
+                "response_type": "in_channel",
+                "attachments": [
+                        {
+                                "blocks": [
+                                        {
+                                                "type": "section",
+                                                "text": {
+                                                        "type": "mrkdwn",
+                                                        "text": "Hm. Sorry, I couldn't find this post!"
+                                                }
+                                        },
+                                        {
+                                                "type": "image",
+                                                "title": {
+                                                        "type": "plain_text",
+                                                        "text": "You should create one!",
+                                                        "emoji": true
+                                                },
+                                                "image_url": "https://media.giphy.com/media/1fkd6ZTBsxSosV4UTS/200w_d.gif",
+                                                "alt_text": "You should create one!"
+                                        }
+                                ]
+                        }
+                ]
+        }
+
+## Tags [/tags{?slug}]
+Returns an object with metadata related to this tag.
+
++ Parameters
+    + slug: juliet (required, string)
+
+### Tag details [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 7066,
+                "count": 3,
+                "link": "https://staging.stylist.co.uk/tag/juliet",
+                "name": "&amp; Juliet",
+                "slug": "juliet",
+                "taxonomy": "post_tag",
+                "description": "&amp; Juliet, breaking news, photos, comments, social media posts on this topic."
+                "canonical_url": "http://0.0.0.0:3000/tag/fashion",
+                "seo_title": "test",
+                "seo_description": "test",
+                "seo_schema": "{\"0\":{\"@type\":\"CollectionPage\",\"@context\":\"https:\\/\\/schema.org\",\"name\":\"Fashion\",\"url\":\"http:\\/\\/0.0.0.0:3000\\/tag\\/fashion\",\"description\":\"Fashion, breaking news, photos, comments, social media posts on this topic.\",\"mainEntity\":{\"@type\":\"ItemList\",\"itemListElement\":[]}},\"mainEntity\":{\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"url\":\"http:\\/\\/0.0.0.0:3000\\/money\\/when-is-black-friday-2024-and-what-are-the-best-deals-to-expect\\/844297\",\"name\":\"When is Black Friday 2024 and what are the best deals to expect?\"},{\"@type\":\"ListItem\",\"position\":2,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/phoebe-english-interview-sustainable-fashion-upcycled-partywear\\/841872\",\"name\":\"Phoebe English shares the inspiration behind her upcycled party season collection\"},{\"@type\":\"ListItem\",\"position\":3,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/best-christmas-gifts-stocking-filler-fashion-designer-high-street\\/458914\",\"name\":\"29 stylish stocking fillers under \\u00a3100 to please everyone on your to-buy-for list\"},{\"@type\":\"ListItem\",\"position\":4,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/what-to-wear-to-work-winter-office-essentials\\/841498\",\"name\":\"All the winter workwear essentials you need for the office\"},{\"@type\":\"ListItem\",\"position\":5,\"url\":\"http:\\/\\/0.0.0.0:3000\\/entertainment\\/tv\\/apple-tv-the-new-look\\/842130\",\"name\":\"Apple TV+ shares a first glimpse of new Coco Chanel drama The New Look\"},{\"@type\":\"ListItem\",\"position\":6,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/best-knitted-twin-sets-co-ords-winter\\/841060\",\"name\":\"9 of the best knitted twin sets to cosy up in this winter\"},{\"@type\":\"ListItem\",\"position\":7,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/how-to-wear-balletcore-trend\\/841146\",\"name\":\"How to nail the balletcore trend from top to toe\"},{\"@type\":\"ListItem\",\"position\":8,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/pjs-vs-partywear-what-to-wear-on-christmas-day\\/839082\",\"name\":\"PJs v party outfits: what to wear on Christmas Day\"},{\"@type\":\"ListItem\",\"position\":9,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/best-high-street-designer-accessories-under-50\\/373604\",\"name\":\"9 fashion, homeware and beauty items guaranteed to brighten your day \\u2013 all under \\u00a350\"},{\"@type\":\"ListItem\",\"position\":10,\"url\":\"http:\\/\\/0.0.0.0:3000\\/fashion\\/padded-quilted-jackets-coats\\/428106\",\"name\":\"Padded and quilted jackets: 11 longline coats to cosy up in this winter\"}]}}"
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "no_tag",
+                "message": "Tag capulet does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): slug",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "slug"
+                        ]
+                }
+        }
+
+## Tagbot Categories [/tagbot_categories/{post_id}]
+Returns an object of the tagbot information related with this post.
+
++ Parameters
+    + post_id: 131956 (required, number)
+
+### Tagbot categories details [GET]
+
++ Response 200 (application/json)
+
+        {
+                "categories": [
+                        {
+                                "name": "/style and fashion/beauty",
+                                "score": 0.998549
+                        },
+                        {
+                                "name": "/style and fashion/beauty/cosmetics/eyeshadow",
+                                "score": 0.950579
+                        }
+                ]
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "undefined_tagbot_category",
+                "message": "Tagbot category doesn't exist for this post",
+                "data": {
+                        "status": 404
+                }
+        }
+
+## Trends lookup [/trends{?id}]
+Returns an object with metadata of the required categories.
+
++ Parameters
+    + id: 642 (required, integer)
+
+### Trends lookup [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 642,
+                "count": 2095,
+                "link": "https://staging.stylist.co.uk/beauty",
+                "name": "Beauty",
+                "slug": "beauty",
+                "parent": null,
+                "taxonomy": "category",
+                "acf": {
+                        "sell": "Explore the latest beauty news, from hair, make-up & skincare trends to beauty product reviews and exclusives",
+                },
+                "image": "null",
+                "seo_title": "",
+                "seo_description": "dssasf. gdggsgg",
+                "seo_schema": "{\"0\":{\"@type\":\"CollectionPage\",\"@context\":\"https:\\/\\/schema.org\",\"name\":\"Beauty\",\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\",\"description\":\"Explore the latest beauty news, from hair, make-up &amp; skincare trends to beauty product reviews and exclusives\",\"mainEntity\":{\"@type\":\"ItemList\",\"itemListElement\":[]}},\"mainEntity\":{\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/nobodys-child-unveils-debut-beauty-collection\\/844406\",\"name\":\"Nobody&#8217;s Child unveils debut beauty collection\"},{\"@type\":\"ListItem\",\"position\":2,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/test-ankur-2\\/844374\",\"name\":\"test ankur\"},{\"@type\":\"ListItem\",\"position\":3,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/the-koi-and-the-lotus-how-sonia-gs-beautiful-new-brushes-came-to-be-2\\/844348\",\"name\":\"The Koi and The Lotus: How Sonia G\\u2019s Beautiful New Brushes Came to Be\"},{\"@type\":\"ListItem\",\"position\":4,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/6-editor-approved-essences-for-bright-supple-skin\\/844333\",\"name\":\"6 Editor-Approved Essences for Bright, Supple Skin\"},{\"@type\":\"ListItem\",\"position\":5,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/meet-mandelic-acid-the-ideal-aha-for-sensitive-skin\\/844324\",\"name\":\"Meet Mandelic Acid, the Ideal AHA for Sensitive Skin\"},{\"@type\":\"ListItem\",\"position\":6,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/the-koi-and-the-lotus-how-sonia-gs-beautiful-new-brushes-came-to-be\\/844318\",\"name\":\"The Koi and The Lotus: How Sonia G\\u2019s Beautiful New Brushes Came to Be\"},{\"@type\":\"ListItem\",\"position\":7,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/i-wouldnt-take-anything-back-suki-waterhouse-on-her-wild-ride-from-london-it-girl-to-la-mum-and-finding-pure-love-with-robert-pattinson\\/844072\",\"name\":\"I Wouldn\\u2019t Take Anything Back\\u201d: Suki Waterhouse On Her Wild Ride From London It-Girl To LA Mum, And Finding \\u201cPure Love\\u201d With Robert Pattinson\"},{\"@type\":\"ListItem\",\"position\":8,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/test-ankur-hjh\\/844066\",\"name\":\"test ankur hjh\"},{\"@type\":\"ListItem\",\"position\":9,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/salespage-the-summer-issue-is-here-featuring-kendall-jenner\\/843766\",\"name\":\"SalesPage: The Summer issue is here featuring Kendall Jenner\"},{\"@type\":\"ListItem\",\"position\":10,\"url\":\"https:\\/\\/staging.stylist.co.uk\\/beauty\\/another-test-post-2\\/843660\",\"name\":\"Another Test Post\"}]}}"
+        }
++ Response 404 (application/json)
+
+        {
+                "code": "no_category",
+                "message": "Categories not found",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "No values passed for the id parameter",
+                "data": {
+                        "status": 404
+                }
+        }
+
+## Users [/users{?slug}]
+Returns an object with the user/author metadata.
+
++ Parameters
+    + slug: willbays (required, string)
+
+### User details [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 63,
+                "name": "Will Bays",
+                "description": "Will Bays - for <a href=\"https://www.stylist.co.uk\">stylist.co.uk</a>, read the latest news stories, features and updates here.",
+                "link": "https://staging.stylist.co.uk/author/willbays",
+                "slug": "willbays",
+                "type": "author",
+                "headshot": false
+        }
+
++ Response 404 (application/json)
+
+        {
+                "code": "no_user",
+                "message": "User johnny-bravo does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): slug",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "slug"
+                        ]
+                }
+        }
+
+## Email Unsubscribe Questions [/unsubscribe-questions]
+Returns the email unsubscribe questions and answers.
+The answers will be rendered in a random order on every call.
+
+### Unsubscribe Questions [GET]
+
++ Response 200
+
+        {
+                "topics": [
+                        {
+                                "topic_id": 0,
+                                "question": "Why are you leaving us ?",
+                                "answers": [
+                                        "Too many emails!",
+                                        "I never wanted to subscribe!",
+                                        "Not interested in the topics!"
+                                ],
+                                "resub_text": "Are you sure you want to leave us ?"
+                        },
+                        {
+                                "topic_id": 1,
+                                "question": "What could we have done better ?",
+                                "answers": [
+                                        "Send more interesting emails. ",
+                                        "Not subscribe me at all.",
+                                        "Send less emails. "
+                                ],
+                                "resub_text": "Whaa?"
+                        }
+                ]
+        }
+
+## Verticals [/verticals]
+Return an array of vertical objects.
+
+### Verticals array [GET]
+
++ Response 200 (application/json)
+
+        [
+                {
+                        "id": 7549,
+                        "name": "Stylist Loves",
+                        "slug": "stylist-loves",
+                        "parent": null,
+                        "description": "Sign up for our essential edit of what to buy, see, read and do while at home and also receive our 11-page Ultimate Guide To Making Your Home Feel Bigger.",
+                        "sell": "Sign up for our essential edit of what to buy, see, read and do while at home and also receive our 11-page Ultimate Guide To Making Your Home Feel Bigger.",
+                        "delivered": "4x week",
+                        "telemetry_vertical": 38,
+                        "primary_colour": "#acd2df",
+                        "accent_colour": "#000000",
+                        "thumbnail_image": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/03/27132139/stylist-loves-email-sign-up-page-v11.gif",
+                        "image": {},
+                        "crop": "original",
+                        "most_recent_email_id": 396386
+                        "signup_widget": {
+                            "background_colour": "#000000",
+                            "text_colour": "#000000",
+                            "button_colour": "#000000",
+                            "button_text_colour": "#000000",
+                        },
+                },
+                {
+                        "id": 8392,
+                        "name": "Strong Women",
+                        "slug": "strong-women",
+                        "parent": null,
+                        "description": "Join our fitness community and get motivated with the latest workouts, nutritious recipes, expert tips and gym kit inspiration. You'll also receive A Beginner's Guide To Strength Training when you sign up.",
+                        "sell": "Join our fitness community and get motivated with the latest workouts, nutritious recipes, expert tips and gym kit inspiration. You'll also receive A Beginner's Guide To Strength Training when you sign up.",
+                        "delivered": "weekly",
+                        "telemetry_vertical": 39,
+                        "primary_colour": "#ffc2c4",
+                        "accent_colour": "#000000",
+                        "thumbnail_image": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/03/27131831/strongwomenplaceholdings.jpg",
+                        "image": {},
+                        "crop": "square",
+                        "most_recent_email_id": 396102
+                        "signup_widget": {
+                              "background_colour": "#000000",
+                              "text_colour": "#000000",
+                              "button_colour": "#000000",
+                              "button_text_colour": "#000000",
+                        },
+                },
+        ]
+
+## Categories [/settings]
+Returns Wordpress Settings.
+
+### Category details [GET]
++ Response 200 (application/json)
+
+        {
+              "app_onboarding_settings": {
+              "main_image_desktop": {
+              "url": "https://images-stylist-staging.s3.eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1.jpg",
+              "alt": "Stylist Issue 615",
+              "width": 1438,
+              "height": 1920,
+              "caption": "Stylist Issue 615",
+              "description": "Stylist Issue 615",
+              "sizes": {
+              "thumbnail": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-256x256.jpg",
+              "thumbnail-width": 256,
+              "thumbnail-height": 256,
+              "square": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1120x1120.jpg",
+              "square-width": 1120,
+              "square-height": 1120,
+              "portrait": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1120x1680.jpg",
+              "portrait-width": 1120,
+              "portrait-height": 1680,
+              "landscape": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1438x959.jpg",
+              "landscape-width": 1438,
+              "landscape-height": 959,
+              "letterbox": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1438x753.jpg",
+              "letterbox-width": 1438,
+              "letterbox-height": 753
+              },
+              "doris_sizes": {
+              "10_13": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-255x331.jpg",
+              "10_13_width": 255,
+              "10_13_height": 331,
+              "5_4": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-972x777.jpg",
+              "5_4_width": 972,
+              "5_4_height": 777,
+              "10_8": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1280x1024.jpg",
+              "10_8_width": 1280,
+              "10_8_height": 1024,
+              "16_9": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1438x809.jpg",
+              "16_9_width": 1438,
+              "16_9_height": 809,
+              "25_9": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1000x360.jpg",
+              "25_9_width": 1000,
+              "25_9_height": 360,
+              "square": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/19144808/cover_plus_emilycampbell_applenews_72dpi-1-1120x1120.jpg",
+              "square_width": 1120,
+              "square_height": 1120
+              }
+              },
+              "main_image_tablet": {
+              "url": "https://images-stylist-staging.s3.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2.jpg",
+              "alt": "Nobody's Child - Stylist VIP",
+              "width": 1920,
+              "height": 1920,
+              "caption": "Nobody's Child - Stylist VIP",
+              "description": "Nobody's Child - Stylist VIP",
+              "sizes": {
+              "thumbnail": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-256x256.jpg",
+              "thumbnail-width": 256,
+              "thumbnail-height": 256,
+              "square": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1120x1120.jpg",
+              "square-width": 1120,
+              "square-height": 1120,
+              "portrait": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1120x1680.jpg",
+              "portrait-width": 1120,
+              "portrait-height": 1680,
+              "landscape": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1680x1120.jpg",
+              "landscape-width": 1680,
+              "landscape-height": 1120,
+              "letterbox": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1680x880.jpg",
+              "letterbox-width": 1680,
+              "letterbox-height": 880
+              },
+              "doris_sizes": {
+              "10_13": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-255x331.jpg",
+              "10_13_width": 255,
+              "10_13_height": 331,
+              "5_4": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-972x777.jpg",
+              "5_4_width": 972,
+              "5_4_height": 777,
+              "10_8": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1280x1024.jpg",
+              "10_8_width": 1280,
+              "10_8_height": 1024,
+              "16_9": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1920x1080.jpg",
+              "16_9_width": 1920,
+              "16_9_height": 1080,
+              "25_9": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1000x360.jpg",
+              "25_9_width": 1000,
+              "25_9_height": 360,
+              "square": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/18120739/nc-image-stylist-vips-7-2-1120x1120.jpg",
+              "square_width": 1120,
+              "square_height": 1120
+              }
+              },
+              "main_image_mobile": {
+              "url": null,
+              "alt": null,
+              "width": null,
+              "height": null,
+              "caption": null,
+              "description": null,
+              "sizes": {
+              "thumbnail": "http://cms.local/",
+              "thumbnail-width": null,
+              "thumbnail-height": null,
+              "square": "http://cms.local/",
+              "square-width": null,
+              "square-height": null,
+              "portrait": "http://cms.local/",
+              "portrait-width": null,
+              "portrait-height": null,
+              "landscape": "http://cms.local/",
+              "landscape-width": null,
+              "landscape-height": null,
+              "letterbox": "http://cms.local/",
+              "letterbox-width": null,
+              "letterbox-height": null
+              },
+              "doris_sizes": {
+              "10_13": "http://cms.local/",
+              "10_13_width": null,
+              "10_13_height": null,
+              "5_4": "http://cms.local/",
+              "5_4_width": null,
+              "5_4_height": null,
+              "10_8": "http://cms.local/",
+              "10_8_width": null,
+              "10_8_height": null,
+              "16_9": "http://cms.local/",
+              "16_9_width": null,
+              "16_9_height": null,
+              "25_9": "http://cms.local/",
+              "25_9_width": null,
+              "25_9_height": null,
+              "square": "http://cms.local/",
+              "square_width": null,
+              "square_height": null
+              }
+              },
+              "qr_code_google": {
+              "url": "https://images-stylist-staging.s3.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1.jpg",
+              "alt": "sarah",
+              "width": 1080,
+              "height": 1920,
+              "caption": "",
+              "description": "tsg",
+              "sizes": {
+              "thumbnail": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-256x256.jpg",
+              "thumbnail-width": 256,
+              "thumbnail-height": 256,
+              "square": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x1080.jpg",
+              "square-width": 1080,
+              "square-height": 1080,
+              "portrait": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x1620.jpg",
+              "portrait-width": 1080,
+              "portrait-height": 1620,
+              "landscape": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x720.jpg",
+              "landscape-width": 1080,
+              "landscape-height": 720,
+              "letterbox": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x566.jpg",
+              "letterbox-width": 1080,
+              "letterbox-height": 566
+              },
+              "doris_sizes": {
+              "10_13": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-255x331.jpg",
+              "10_13_width": 255,
+              "10_13_height": 331,
+              "5_4": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-972x777.jpg",
+              "5_4_width": 972,
+              "5_4_height": 777,
+              "10_8": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x864.jpg",
+              "10_8_width": 1080,
+              "10_8_height": 864,
+              "16_9": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x608.jpg",
+              "16_9_width": 1080,
+              "16_9_height": 608,
+              "25_9": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1000x360.jpg",
+              "25_9_width": 1000,
+              "25_9_height": 360,
+              "square": "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2024/07/16203202/pandora_digi_1_v1_mobile7-1-1080x1080.jpg",
+              "square_width": 1080,
+              "square_height": 1080
+              }
+              },
+              "qr_code_apple": {
+              "url": null,
+              "alt": null,
+              "width": null,
+              "height": null,
+              "caption": null,
+              "description": null,
+              "sizes": {
+              "thumbnail": "http://cms.local/",
+              "thumbnail-width": null,
+              "thumbnail-height": null,
+              "square": "http://cms.local/",
+              "square-width": null,
+              "square-height": null,
+              "portrait": "http://cms.local/",
+              "portrait-width": null,
+              "portrait-height": null,
+              "landscape": "http://cms.local/",
+              "landscape-width": null,
+              "landscape-height": null,
+              "letterbox": "http://cms.local/",
+              "letterbox-width": null,
+              "letterbox-height": null
+              },
+              "doris_sizes": {
+              "10_13": "http://cms.local/",
+              "10_13_width": null,
+              "10_13_height": null,
+              "5_4": "http://cms.local/",
+              "5_4_width": null,
+              "5_4_height": null,
+              "10_8": "http://cms.local/",
+              "10_8_width": null,
+              "10_8_height": null,
+              "16_9": "http://cms.local/",
+              "16_9_width": null,
+              "16_9_height": null,
+              "25_9": "http://cms.local/",
+              "25_9_width": null,
+              "25_9_height": null,
+              "square": "http://cms.local/",
+              "square_width": null,
+              "square_height": null
+              }
+              },
+              "title": "test ",
+              "description": "hjdgjf"
+              }
+        }
+
+

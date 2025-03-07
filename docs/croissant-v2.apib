@@ -1,0 +1,418 @@
+FORMAT: 1A
+
+# Croissant API - V2
+
+Documentation for Croissant API endpoints.
+
+## Course Categories [/course_categories{?slug}]
+Returns an object with metadata of the required course category.
+
++ Parameters
+    + slug: diy (required, string)
+
+### Course Categories [GET]
+
++ Response 200 (application/json)
+
+        {
+                "id": 123,
+                "count": 2095,
+                "link": "https://staging.stylist.co.uk/diy",
+                "name": "DIY",
+                "slug": "diy",
+                "parent": null,
+                "taxonomy": "course-category",
+                "acf": {
+                        "sell": "Complete tasks without the aid of a paid expert.",
+                }
+        }
++ Response 404 (application/json)
+
+        {
+                "code": "no_category",
+                "message": "Category poop does not exist",
+                "data": {
+                        "status": 404
+                }
+        }
+
++ Response 400
+
+        {
+                "code": "rest_missing_callback_param",
+                "message": "Missing parameter(s): slug",
+                "data": {
+                        "status": 400,
+                        "params": [
+                                "slug"
+                        ]
+                }
+        }
+
+## How To Posts List [/how-to{?exercise_type_how_to,muscle_group}]
+Accepts the same parameters as the post list, except for the post_types, which will always be set to how_to post types.
+
++ Parameters
+    + exercise_type_how_to: strength (string, optional)
+    + muscle_group: full-body (string, optional)
+
+### How to posts list [GET]
+
++ Response 200 (application/json)
+
+        {
+            "posts": [
+                {
+                        "id": 397218,
+                        "date": "2020-06-17T18:03:12",
+                        "date_gmt": "2020-06-17T17:03:12",
+                        "link": "https://staging.stylist.co.uk/books/post-for-the-testings-of-sortingoffice/397218",
+                        "title": {},
+                        "acf": {},
+                        "_embedded": {},
+                        "sticky": false
+                },
+                {
+                        "id": 397165,
+                        "date": "2020-06-12T14:35:48",
+                        "date_gmt": "2020-06-12T13:35:48",
+                        "link": "https://staging.stylist.co.uk/fashion/test-post-voucher-design/397165",
+                        "title": {},
+                        "acf": {},
+                        "_embedded": {
+                                "author": [
+                                        {
+                                                "id": 63,
+                                                "name": "Will Bays",
+                                                "url": "",
+                                                "description": "",
+                                                "link": "https://staging.stylist.co.uk/author/willbays",
+                                                "slug": "willbays"
+                                        }
+                                ]
+                        },
+                        "sticky": false
+                }
+            ],
+            "authors": [
+                {
+                    "name": "Stanley and Oliver",
+                    "slug": "stanley-and-oliver"
+                },
+                {
+                    "name": "Charlie Chaplin",
+                    "slug": "charlie-chaplin"
+                },
+                {
+                    "name": "Louis de Funes",
+                    "slug": "louis-de-funes"
+                },
+            ]
+            "taxonomies": {
+                "exercise_type": [
+                    {
+                      "name": "Stretch",
+                      "slug": "stretch"
+                    }
+                ],
+                "muscle_group": [
+                    {
+                        "name": "Back / Shoulders",
+                        "slug": "back-shoulders"
+                    },
+                    {
+                        "name": "Core / Abs",
+                        "slug": "core-abs"
+                    }
+                ]
+            },
+            "post_count": 2
+        }
+
++ Response 404 (application/json)
+
+        {
+            "code": "no_posts",
+            "message": "No posts returned for this filter",
+            "data": {
+                "status": 404
+            }
+        }
+
+## Hub Page [/hub-page{?post_types,packages}]
+Returns an array with `special_offers` as a fixed key. All the other keys will be dinamically generated, following the pattern `<post_slug>` + `_latest`.
+
++ Parameters
+    + post_types: `longform` (required, string)
+    + packages: `stylist-premium` (required, string)
+
+### Hub Page [GET]
+
++ Response 200 (application/json)
+
+        {
+            "video_post_latest": [
+                {
+                    "id": 397606,
+                    "date": "2020-10-09T08:48:14",
+                    "date_gmt": "2020-10-09T07:48:14",
+                    "link": "https://staging.stylist.co.uk/beauty/test-video-post-2/397606",
+                    "title": {},
+                    "acf": {},
+                    "_embedded": {},
+                    "sticky": false
+                }
+            ],
+            "longform_latest": [
+                {
+                    "id": 397452,
+                    "date": "2020-08-19T10:26:05",
+                    "date_gmt": "2020-08-19T09:26:05",
+                    "link": "https://staging.stylist.co.uk/beauty/test-premium/397452",
+                    "title": {},
+                    "acf": {},
+                    "_embedded": {},
+                    "sticky": false
+                }
+            ],
+            "special_offers": [
+                {
+                    "id": 397234,
+                    "date": "2020-09-16T10:56:04",
+                    "date_gmt": "2020-09-16T09:56:04",
+                    "link": "https://staging.stylist.co.uk/win/dh-meet-the-maker-test-post/397234",
+                    "title": {},
+                    "acf": {},
+                    "_embedded": {},
+                    "sticky": false
+                }
+            ]
+        }
+
++ Response 400 (application/json)
+
+        {
+            "code": "rest_missing_callback_param",
+            "message": "Missing parameter(s): packages, post_types",
+            "data": {
+                "status": 400
+            }
+        }
+
++ Response 404 (application/json)
+
+        {
+            "code": "no_posts",
+            "message": "No posts returned for this filter",
+            "data": {
+                "status": 404
+            }
+        }
+
+## Popup page [/popup]
+Returns a popup object, based on the parameters passed.
+
+### Popup [POST]
+
++ Payload parameters
+    + post_id (integer, optional)
+    + premium (string, optional) - Premium terms the popup should apply to
+    + series (string, optional) - Series the popup should apply to
+    + category (string, optional) - Category the popup should apply to
+    + logged_user (boolean, optional) - Specifies whether the popup should appear for logged is users
+    + preview_popup_id (integer, optional) - the CMS will try to load the id passed as a popup. This parameter is only used to preview popups, not published ones.
+    + permutive_segment_ids (array, optional) - Permutive segments the popup should apply to
+    + page_path (string, optional) - Page the user is on
+
+<br >If no parameter is passed, it will return the most recent generic popup (that does not have any rule attached to it).
+<br >If `post_id` is set, please do not pass the other parameters. They will get checked against the article taxonomies.
+<br >For listing pages, please do not pass an article id.
+<br > If `permutive_segment_ids` is passed, the endpoint will ignore all other rules. If no popup is found for the specified segments, other rules will be considered.
+<br > If `page_path` is passed and it matches one of the paths added in the exlusion list the endpoint will return an empty array.
++ Request (application/json)
+
+        {
+            "post_id":12345,
+            "premium":"swtc",
+            "series":"loves",
+            "category":"beauty",
+            "logged_user":true,
+            "preview_popup_id":12345,
+            "permutive_segment_ids":[1,2,3,4],
+            "page_path":"/this/page/should/not/receive/a/popup"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "popup": {
+                "id": 398018,
+                "date": "2021-03-31T09:00:12",
+                "date_gmt": "2021-03-31T08:00:12",
+                "link": "https://staging.stylist.co.uk/ad-section-2/popup-1/398018",
+                "title": {
+                    "rendered": "Popup 1"
+                },
+                "acf": {
+                    "popup_layout": "full-screen",
+                    "telemetry_vertical_id": "44",
+                    "telemetry_vertical_name": "fashion insider",
+                    "description": "Sign up for our monthly deep dive into the world of luxury fashion, brought to you by Stylist’s fashion team",
+                    "success_message": "test",
+                    "logo_svg": "",
+                    "popup_text": "",
+                    "popup_logo": {},
+                    "popup_image": {},
+                    "popup_background_colour": "#15138c",
+                    "popup_text_colour": "",
+                    "popup_button_colour": "#1e73be",
+                    "popup_button_text_colour": "#dd9933",
+                    "popup_button_text": "Click me",
+                    "popup_button_link": "https://stylist.co.uk",
+                },
+                "popup_rules": {}
+            }
+        }
+
+## Post List [/posts{?ids,tags,tags_exclude,categories,categories_exclude,series,series_exclude,packages,packages_exclude,authors,authors_exclude,post_types,sticky,post_types,offset,page,per_page,show_authors,show_taxonomies,dynamic_filter,title_search,sort_tax,sort_terms}]
+Returns a list of articles and authors based on parameters passed on.
+
++ Parameters
+    + ids: 1234,43221 (optional, integer)
+    + tags: music (optional, string)
+    + tags_exclude: food (optional, string)
+    + categories: beauty (optional, string)
+    + categories_exclude: books (optional, string)
+    + series: loves (optional, string)
+    + series_exclude: strong (optional, string)
+    + packages: stylist-live (optional, string)
+    + packages_exclude: trainning-club (optional, string)
+    + authors: willbays (optional, string)
+    + post_types: post (optional, string)
+    Just for clarification, here is a valid list of `post_types`:
+        - post
+        - page
+        - longform
+        - quiz_post
+        - sponsored_post
+        - sponsored_longform
+        - sponsored_quiz_post
+        - video_post
+        - email
+        - training_plan
+        - amp_story
+        - course
+        - popup
+    + authors_exclude: Adrian.Cristea (optional, string)
+    All string params accept multiple values separated by commas. Example: `?tags=music,food`
+    + sticky: 1 (optional, integer)
+    Accepts `1` for true and `0` for false:
+        - if 1, it will return ONLY sticky posts
+        - if 0, it will return NO sticky posts
+        - if not used, the sticky posts will be treated as a normal post and return in chronological order
+    + offset: 1 (optional, integer)
+    Wordpress will ignore `page` post types if `offset` is used
+    + page: 1 (optional, integer)
+    + per_page: 3 (optional, integer)
+    + show_authors (optional)
+    If this parameter is passed, the enpoint will return an array of authors. Otherwise, the authors key will return an empty array.
+    + show_taxonomies: muscle.group (optional, string)
+    If this parameter is passed, the enpoint will return an array of terms, based on the taxonomy passed. Otherwise, the taxonomies key will return an empty array.
+    + dynamic_filter: abs (optional, string)
+    The name of this filter must be the same as the value for `show_taxonomies` parameter. In this case, it would be `muscle.group`. More filters can be added, as long as their names are passed as values in the `show_taxonomies` parameter.
+    If this filter is passed, the endpoint will only return the posts that have the required taxonomy(ies) (i.e `muscle.goup`) and all the terms passed as parameters (i.e. `abs`)
+    + title_search: query (optional, string)
+    If this parameter is passed, the enpoint will return an array of posts that contain the query in their title.
+    + sort_tax: category (optional, string)
+    If this parameter is passed, the enpoint will look for the value of sort_terms and bring in front all the posts that contain this taxonomy term.
+    This parameter has to be used together with sort_terms.
+    + sort_terms: beauty (optional, string)
+    If this parameter is passed, the enpoint will sort and bring in front all the posts that contain this term. This parameter has to be used together with sort_tax.
+
+
+### Posts list [GET]
+
++ Response 200 (application/json)
+
+        {
+            "posts" => [
+                {
+                        "id": 397218,
+                        "date": "2020-06-17T18:03:12",
+                        "date_gmt": "2020-06-17T17:03:12",
+                        "link": "https://staging.stylist.co.uk/books/post-for-the-testings-of-sortingoffice/397218",
+                        "title": {},
+                        "acf": {},
+                        "_embedded": {},
+                        "sticky": false
+                },
+                {
+                        "id": 397165,
+                        "date": "2020-06-12T14:35:48",
+                        "date_gmt": "2020-06-12T13:35:48",
+                        "link": "https://staging.stylist.co.uk/fashion/test-post-voucher-design/397165",
+                        "title": {},
+                        "acf": {},
+                        "_embedded": {
+                                "author": [
+                                        {
+                                                "id": 63,
+                                                "name": "Will Bays",
+                                                "url": "",
+                                                "description": "",
+                                                "link": "https://staging.stylist.co.uk/author/willbays",
+                                                "slug": "willbays"
+                                        }
+                                ]
+                        },
+                        "sticky": false
+                }
+            ],
+            "authors" => [
+                {
+                    "name": "Stanley and Oliver",
+                    "slug": "stanley-and-oliver"
+                },
+                {
+                    "name": "Charlie Chaplin",
+                    "slug": "charlie-chaplin"
+                },
+                {
+                    "name": "Louis de Funes",
+                    "slug": "louis-de-funes"
+                },
+            ]
+            "taxonomies": {
+                "premium": [
+                    {
+                        "name": "Child subscription",
+                        "slug": "sub-20"
+                    },
+                    {
+                        "name": "Stylist Gold Modified",
+                        "slug": "stylist-gold"
+                    },
+                    {
+                        "name": "Stylist Poop",
+                        "slug": "stylist-poop"
+                    },
+                    {
+                        "name": "Stylist Premium",
+                        "slug": "styles-premium"
+                    }
+                ],
+            },
+            "post_count": 2
+        }
+
++ Response 404 (application/json)
+
+        {
+            "code": "no_posts",
+            "message": "No posts returned for this filter",
+            "data": {
+                "status": 404
+            }
+        }
+
+
